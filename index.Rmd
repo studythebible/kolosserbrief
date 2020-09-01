@@ -1,0 +1,33 @@
+--- 
+title: "Die Bibel kennen: Kolosserbrief"
+author: ""
+date: "`r Sys.Date()`"
+description: "Eine Studienreihe über den Kolosserbrief"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+theme: cerulean
+colorlinks: yes
+bibliography:
+- book.bib
+- packages.bib
+github-repo: bibelstudy/kolosserbrief
+link-citations: yes
+biblio-style: apalike
+documentclass: krantz
+fontsize: 12pt
+cover-image: img/cover.png
+---
+
+# Studienplan
+
+Eine  Studienreihe über den kolosserbrief
+
+
+```{block, type='rmdinfo'}
+**Soli Deo Gloria**
+```
+
+***
+
+Nur für private Zwecke.
+

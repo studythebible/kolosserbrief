@@ -1,0 +1,10 @@
+book_filename: "kolosserbrief_studie"
+language:
+  label:
+    fig: "Fig. "
+    tab: "Tab. "
+  ui:
+    edit: "Edit"
+    chapter_name: "Chapter "
+delete_merged_file: true
+output_dir: "docs"

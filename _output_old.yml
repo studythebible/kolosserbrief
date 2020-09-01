@@ -1,0 +1,42 @@
+bookdown::gitbook:
+  includes:
+   after_body: code.js
+  css: style.css
+  edit : null
+  toc_depth: 1
+  number_section: false
+  config:
+    toc:
+      before: |
+        <li><a href="https://bibelstudy.github.io/hebraeerbrief/">Hebräerbrief</a></li>
+     # after: |
+    #    <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    #edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+    download: ["pdf", "epub"]
+    sharing:
+      facebook: no
+      github: no
+      twitter: no
+      linkedin: no
+      weibo: no
+      instapaper: no
+      vk: no
+      all: no
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble.tex
+    before_body: latex/before_body.tex
+    after_body: latex/after_body.tex
+    keep_tex: true
+  dev: "cairo_pdf"
+  latex_engine: xelatex
+  citation_package: natbib
+  template: null
+  pandoc_args: --top-level-division=chapter
+  toc_depth: 3
+  toc_unnumbered: false
+  toc_appendix: true
+  quote_footer: ["\\VA{", "}{}"]
+  highlight_bw: true
+  number_sections: false
+bookdown::epub_book: default

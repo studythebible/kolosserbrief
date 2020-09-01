@@ -1,0 +1,1300 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  12pt,
+]{krantz}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Die Bibel kennen: Hebräerbrief},
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{layouts}
+\usepackage[bf,singlelinecheck=off]{caption}
+
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\usepackage{float}
+\floatplacement{figure}{H}
+\usepackage{makeidx}
+\makeindex
+
+% The following commands make floating environments less likely 
+% to float by allowing them to occupy larger fractions of pages 
+% without floating.
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+%Since krantz.cls provided an environment VF for quotes, we redefine the standard quote environment to VF. You can see its style in Section 2.1.
+
+\renewenvironment{quote}{\begin{VF}}{\end{VF}}
+
+
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
+
+\newenvironment{rmdblock}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{img/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{kframe}
+  \item
+  }
+  {
+  \end{kframe}
+  \end{itemize}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+\newenvironment{rmdquestion}
+  {\begin{rmdblock}{question}}
+  {\end{rmdblock}}
+\newenvironment{rmdyou}
+  {\begin{rmdblock}{you}}
+  {\end{rmdblock}}
+\newenvironment{rmdobjective}
+  {\begin{rmdblock}{objective}}
+  {\end{rmdblock}}
+\newenvironment{rmdinfo}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdbible}
+  {\begin{rmdblock}{bible}}
+  {\end{rmdblock}}
+\newenvironment{rmdquote}
+  {\begin{rmdblock}{quote}}
+  {\end{rmdblock}}
+\newenvironment{rmddefinition}
+  {\begin{rmdblock}{definition}}
+  {\end{rmdblock}}
+
+%Then we redefine hyperlinks to be footnotes, because when the book is printed on paper, readers are not able to click on links in text. Footnotes will tell them what the actual links are.
+
+\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+
+
+
+\frontmatter
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Die Bibel kennen: Hebräerbrief}
+\author{}
+\date{\vspace{-2.5em}2020-09-01}
+
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}
+\mainmatter
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{studienplan}{%
+\chapter{Studienplan}\label{studienplan}}
+
+Eine 12-wöchige praktische Studienreihe über den Hebräerbrief
+von Matthew Z. Capps \href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews}{(Quelle auf English)}.
+
+Übersetzt aus dem Englischen von eurem Diener.
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{woche01}{Woche 1: Übersicht}
+\item
+  \protect\hyperlink{woche02}{Woche 2: Einführung: Die Vormachtstellung Jesu Christi (Hebräer 1,1-4)}
+\item
+  \protect\hyperlink{woche03}{Woche 3: Jesus ist den Engelswesen überlegen (Hebräer 1,5-2,18)}
+\item
+  \protect\hyperlink{woche04}{Woche 4: Jesus ist Mose überlegen (Hebräer 3,1-4,13)}
+\item
+  \protect\hyperlink{woche05}{Woche 5: Jesus ist der oberste Hohepriester, Teil 1 (Hebräer 4,14-5,10)}
+\item
+  \protect\hyperlink{woche06}{Woche 6: Eine Warnung vor dem Glaubensabfall (Hebräer 5,11-6,20)}
+\item
+  \protect\hyperlink{woche07}{Woche 7: Jesus ist der oberste Hohepriester, Teil 2 (Hebräer 7,1-8,13)}
+\item
+  Woche 8: Jesus ist das überlegene Opfer (Hebräer 9,1-10,18)
+\item
+  Woche 9: Der Ruf zum Glauben (Hebräer 10,19-11,40)
+\item
+  Woche 10: Der Ruf zur Ausdauer (Hebräer 12,1-29)
+\item
+  Woche 11: Letzte Ermahnungen (Hebräer 13,1-25)
+\item
+  Woche 12: Zusammenfassung und Schlussfolgerung
+\end{itemize}
+
+\begin{rmdinfo}
+\textbf{Soli Deo Gloria}
+\end{rmdinfo}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke.
+
+Hebrews: A 12-Week Study © 2015 by Matthew Z. Capps. All rights reserved.
+
+\url{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-1-overview}
+
+\hypertarget{woche01}{%
+\chapter{Woche 1: Übersicht}\label{woche01}}
+
+\hypertarget{einfuxfchrung}{%
+\section{Einführung}\label{einfuxfchrung}}
+
+Das anonyme Buch der Hebräer ist ein einzigartiger Beitrag zum Kanon der Schrift. Wie viele andere neutestamentliche Briefe beginnt das Hebräerbrief ohne Einleitung, schliesst aber mit Segen und Grüssen ({Hebräer 13,23-24}). Der Autor beleuchtet die Form des Hebräerbriefes, indem er seine Schrift als ``Wort der Ermahnung'' bezeichnet ({Hebräer 13,22}). Das Hebräische ist mit pastoraler Stimme geschrieben, mit vielen praktischen Ermahnungen, was viele dazu veranlasst, es als eine einzige Predigt oder einen einzigen Predigtvortrag zu betrachten, der sich an Bekehrte aus dem Judentum richtet, die unter dem Druck stehen, zum jüdischen Glauben zurückzukehren.
+
+Das Hebräerbrief gilt auch als eines der am schönsten geschriebenen und stilistisch ausgefeiltesten Bücher des Neuen Testaments, ein literarisches Meisterwerk. Der Autor ist ein Meister der rhetorischen Debatte und der Überzeugungsarbeit. Er beweist auch seine tiefgreifenden theologischen Fähigkeiten mit seinem Gebrauch von Bildern, Metaphern, Anspielungen, alttestamentlichen Analogien und Typologie. In seiner gesamten Darstellung und Ermahnung webt der Autor einen wunderschönen Teppich biblischer Theologie mit dem Ziel, die Überlegenheit Jesu Christi zu verherrlichen.
+
+Das zentrale Motiv der Hebräer ist ``Jesus Christus ist besser'' (die Worte ``besser'', ``mehr'' und ``grösser'' erscheinen zusammen 25 Mal). In vielerlei Hinsicht ist die Herrlichkeit Gottes, wie sie sich in Jesus Christus offenbart, das Gravitationszentrum der Hebräer. Hebräer 1-12 umreisst ein starkes theologisches Argument für die Überlegenheit Christi über alles Geschaffene und alle Gegenstücke im Alten Testament, mit besonderem Schwerpunkt auf der Ermutigung des Lesers, in dem Glauben, der Christus im Zentrum hat, auszuharren. Durch ermutigende Worte, entschiedene Warnungen und kontrastierende Beispiele ruft der Autor den Leser oft dazu auf, auf Christus im Gottesdienst zu antworten.
+
+\hypertarget{einordnung-in-die-gruxf6ssere-geschichte}{%
+\section{Einordnung in die grössere Geschichte}\label{einordnung-in-die-gruxf6ssere-geschichte}}
+
+Der Hebräerbrief enthält 35 direkte Zitate aus dem Alten Testament und noch dazu viele Anspielungen und Verweisen auf das alten Testament. Mit dem alttestamentlichen Hintergrund im Sinn, argumentiert der Autor, dass Gottes Herrlichkeit und Erlösungsplan schliesslich und am deutlichsten in Jesus Christus offenbart werden. Die Überlegenheit Jesu zeigt sich darin, dass er grösser ist als jeder Engel, Priester oder jede Institution des Alten Bundes. Christus ist das vollständige Sühneopfer und der letzte Priester. In ihm sehen wir die Erfüllung aller Hoffnungen und Verheissungen des Alten Testaments, die das lang ersehnte neue Zeitalter des Bundes einleiten.
+
+\hypertarget{schluxfcsselvers}{%
+\section{Schlüsselvers}\label{schluxfcsselvers}}
+
+\begin{rmdquote}
+{[}Jesus{]} ist die Ausstrahlung seiner Herrlichkeit und der Ausdruck
+seines Wesens und trägt alle Dinge durch das Wort seiner Kraft; er hat
+sich, nachdem er die Reinigung von unseren Sünden durch sich selbst
+vollbracht hat, zur Rechten der Majestät in der Höhe gesetzt.
+
+-- Hebräer 1,3
+\end{rmdquote}
+
+\hypertarget{datum-und-historischer-hintergrund}{%
+\section{Datum und historischer Hintergrund}\label{datum-und-historischer-hintergrund}}
+
+Das Hebräische wurde im ersten Jahrhundert, wahrscheinlich vor 70 n.~Chr., geschrieben. Der Autor des Hebräischen nennt sich nicht selbst. Es gab viele Vermutungen über seine Identität; wie der frühchristliche Theologe Origenes (ca. 245 n.~Chr.) sagte, ``nur Gott weiß'', wer er ist. Aber wir können sicher sein, dass der Autor mit seinen Zuhörern vertraut war, denn er sehnte sich danach, mit ihnen wieder vereint zu werden (Hebr 13,19) und kann ihnen Nachrichten über Timotheus, den Stellvertreter des Paulus, geben (Hebr 13,23).
+
+Der traditionelle Titel ``An die Hebräer'' spiegelt die alte Vorstellung wider, dass die ursprüngliche Zuhörerschaft hauptsächlich aus jüdischen Christen bestand. Man kann mit Sicherheit davon ausgehen, dass die Zuhörer mit den vielen Zitaten und Anspielungen auf das Alte Testament vertraut und gut verstanden waren. Sicherlich wandte sich der Autor mit diesem Brief an bekennende Christen; mehrmals drängt der Autor sie, ihr Bekenntnis und ihren Glauben aufrechtzuerhalten (Hebr. 3,6.14; Hebr 4,14; Hebr 10,23).
+
+\hypertarget{uxfcbersicht}{%
+\section{Übersicht}\label{uxfcbersicht}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einführung: Die Vormachtstellung Jesu Christi (Hebr. 1,1-4)
+\item
+  Jesus ist den Engelswesen überlegen (Hebr. 1,5-2,18)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Jesu Status als ewiger Sohn und König (Hebr. 1,5-14)
+  \item
+    Warnung eins: vor der Vernachlässigung der Errettung (Hebr. 2,1-4)
+  \item
+    Jesus als der Gründer der Errettung (Hebr. 2,5-18)
+  \end{enumerate}
+\item
+  Jesus ist Mose überlegen (Hebr. 3,1-4,13)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Jesus ist größer als Mose (Hebr. 3,1-6)
+  \item
+    Zweite Warnung: das Scheitern der Exodus-Generation (Hebr. 3,7-19)
+  \item
+    In Gottes Ruhe eintreten (Hebr. 4,1-13)
+  \end{enumerate}
+\item
+  Jesus ist der oberste Hohepriester, Teil 1 (Hebr. 4,14-5,10)
+\item
+  Eine Warnung vor dem Glaubensabfall (Hebr. 5,11-6,20)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Warnung drei: vor dem Glaubensabfall (Hebr. 5,11-6,12)
+  \item
+    Die Gewissheit von Gottes Verheißung (Hebr. 6,13-6,20)
+  \end{enumerate}
+\item
+  Jesus ist der oberste Hohepriester, Teil 2 (Hebr. 7,1-8,13)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Die Priesterordnung Melchisedeks (Hebr. 7,1-10)
+  \item
+    Jesus im Vergleich zu Melchisedek (Hebr. 7,11-28)
+  \item
+    Jesus, ein Priester eines besseren Bundes (Hebr 8,1-13)
+  \end{enumerate}
+\item
+  Jesus ist das überlegene Opfer (Hebr 9,1-10,18)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Das irdische Heiligtum (Hebr. 9,1-10)
+  \item
+    Erlösung durch das Blut Christi (Hebr. 9,11-28)
+  \item
+    Das Opfer Christi ein für allemal (Hebr 10,1-18)
+  \end{enumerate}
+\item
+  Der Ruf zum Glauben (Hebr. 10,19-11,40)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Ermahnung zur Annäherung (Hebr. 10,19-25)
+  \item
+    Warnung vier: vor dem Zurückschrecken (Hebr. 10,26-39)
+  \item
+    Durch den Glauben (Hebr. 11,1-40)
+  \end{enumerate}
+\item
+  Der Ruf zur Ausdauer (Hebr. 12,1-29)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Jesus, der Gründer und Vervollkommner unseres Glaubens (Hebr 12,1-2)
+  \item
+    Werde nicht müde (Hebr. 12,3-17)
+  \item
+    Ein Königreich, das nicht erschüttert werden kann (Hebr 12,18-24)
+  \item
+    Warnung fünf: vor der Ablehnung des Sprechers (Hebr. 12,25-29)
+  \end{enumerate}
+\item
+  Letzte Ermahnungen (Hebr. 13,1-25)
+  i. Gott wohlgefällige Opfer (Hebr. 13,1-19)
+  ii. Der Segen (Hebr. 13,20-21)
+  iii. Abschliessende Grüsse (Hebr. 13,22-25)
+\end{enumerate}
+
+\hypertarget{wenn-sie-anfangen-.-.-.}{%
+\section{Wenn Sie anfangen . . .}\label{wenn-sie-anfangen-.-.-.}}
+
+Wie verstehen Sie heute, wie die Hebräer uns helfen, die gesamte Geschichte der Bibel zu verstehen? Haben Sie eine Vorstellung davon, wie sich Aspekte des Alten Testaments im Hebräischen erfüllen?
+
+Was ist Ihr gegenwärtiges Verständnis dessen, was die Hebräer zur christlichen Theologie beitragen? Wie klärt dieses Buch unser Verständnis der wichtigsten Lehren des christlichen Glaubens?
+
+Gibt es in der hebräischen Sprache eine alttestamentliche Bildsprache, die Sie besonders verwirrt? Gibt es bestimmte Fragen, von denen Sie hoffen, dass sie durch diese Studie beantwortet werden können?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-1-overview}{source}
+
+\hypertarget{woche02}{%
+\chapter{Woche 2: Einführung: Die Vormachtstellung Jesu Christi}\label{woche02}}
+
+\begin{rmdbible}
+\textbf{Lese Hebräer 1,1-4}
+\end{rmdbible}
+
+\hypertarget{bedeutung-des-abschnittes}{%
+\section{Bedeutung des Abschnittes}\label{bedeutung-des-abschnittes}}
+
+Die Anfangsverse des Hebräerbrief stellen Jesus als die letzte und endgültige Offenbarung Gottes an die Menschheit dar. Der Autor stellt zunächst fest, dass Gott ``in vergangenen Zeiten vielfältig und auf vielerlei Weise'' zu seinem Volk gesprochen hat (Hebr 1,1). Aber jetzt, in diesen letzten Tagen, hat Gott endgültig durch Jesus gesprochen -- durch seinen geliebten Sohn, den Schöpfer, Erhalter und Retter der Welt (Hebr 1,2-3) und ein genaues Bild des Vaters (Hebr 1,3). Die Grösse Jesu wird schliesslich durch seine Erhöhung zur Rechten Gottes über alle irdischen und himmlischen Wesen dargestellt (Hebr 1,4).
+
+\hypertarget{das-gesamtbild}{%
+\section{Das Gesamtbild}\label{das-gesamtbild}}
+
+Hebräer 1,1-4 fördert unsere Herzen zur Anbetung im Licht der strahlenden Majestät und unvergleichlichen Kraft Jesu Christi auf.
+
+\hypertarget{reflexion-und-diskussion}{%
+\section{Reflexion und Diskussion}\label{reflexion-und-diskussion}}
+
+Lesen Sie den Studienabschnitt, Hebräer 1,1-4, durch. Nachdem Sie den Abschnitt gelesen haben, lesen Sie den Abschnitt wieder und halten Sie Ihre eigenen Antworten auf die folgenden Fragen fest -- zuerst in Bezug auf Jesus als göttliche Offenbarung (Hebr. 1,1-2a), dann in Bezug auf Jesu Person, Werk und Status (Hebr. 1,2b-4).
+
+\hypertarget{jesus-als-guxf6ttliche-offenbarung-hebr.-11-2a}{%
+\subsection{1. Jesus als göttliche Offenbarung (Hebr. 1,1-2a)}\label{jesus-als-guxf6ttliche-offenbarung-hebr.-11-2a}}
+
+Gott hat gesprochen. In den einleitenden Versen des Hebräerbriefes fegt der Autor über die Spanne von Gottes fortschreitender Offenbarung und landet auf Jesus Christus als Höhepunkt seiner Kommunikation. \emph{Wenn man einige der wundersamen Weisen betrachtet, auf die Gott im Alten Testament zu den Patriarchen und Propheten gesprochen hat, was versucht der Autor zu zeigen, indem er kontrastiert, wie Gott zuvor gesprochen hat und wie Gott durch seinen Sohn nun endgültig zu seinem Volk gesprochen hat (Hebr 1,1-2)?}
+
+In Hebräer 1,1-2 stellt der Autor des Hebräerbriefes die Offenbarung im Alten Testament der Endgültigkeit der Offenbarung Gottes in Jesus Christus in vier Bereichen gegenüber. \emph{Vergleichen Sie die Epochen, Empfänger, und Agenten der Offenbarung sowie die Art und Weise, wie die Offenbarung ausgedrückt wurde.}
+
+Jesus ist die endgültige Offenbarung Gottes in der Geschichte. Diese Wahrheit impliziert, dass die Offenbarung Gottes im Alten Testament für diese Epoche ausreichend, aber unvollständig war. \emph{Wie wirkt sich die Offenbarung Jesu ``in diesen letzten Tagen'' darauf aus, wie wir den vollständigen Kanon der Schrift lesen (Lukas 24,27; Johannes 5,39-40)?}
+
+\hypertarget{jesus-person-arbeit-und-status-hebr.-12b-4}{%
+\subsection{2. Jesus: Person, Arbeit und Status (Hebr. 1,2b-4)}\label{jesus-person-arbeit-und-status-hebr.-12b-4}}
+
+Viele Gelehrte glauben, dass die Titel ``Sohn'' und ``Erbe'', die in Hebräer 1,2 auf Jesus angewandt werden, auf Psalm 2,7-8 anspielen, einen königlichen Krönungspsalm, der an Gottes Versprechen an Davids Erben in 2 Samuel 7,12-16 erinnert. Im alten Israel war es der erstgeborene Sohn, der das Recht auf das Erbe hatte. Aufgrund seiner königlichen Sohnschaft ist Jesus der Erbe des Universums, einschliesslich der zukünftigen Welt (Hebr. 2,5-9), was eine Position des Segens und der Ehre ist. \emph{Was hebt der Autor in der einzigartigen Beziehung und Verantwortung Jesu in Bezug auf das Universum hervor?}
+
+In Hebräer 1,2-3 behauptet der Autor, dass die gesamte Schöpfung Gottes Jesus gehört, weil durch seine Vermittlung alle Dinge entstanden sind und das Universum durch seine Macht aufrechterhalten wird. Die Präexistenz, Autorität, Macht und volle Gottheit Jesu sind in seiner Rolle bei der Erschaffung und Aufrechterhaltung des Universums offensichtlich (Hebräer 1,10; siehe Johannes 1,3; 1 Korinther 8,6; Kol 1,16). \emph{Was vermitteln uns diese Wahrheiten über den Zweck der Schöpfung und die Herrschaft Jesu über sein Werk?}
+
+In Hebräer 1,3 wird Jesus als ``Ausstrahlung der Herrlichkeit Gottes'' beschrieben. In der biblischen Literatur bezieht sich ``Herrlichkeit'' oft auf die leuchtende Manifestation der Person Gottes (siehe 2. Mose 16,7; 33,18; Jes. 40,5; 60,1; 60,19). Was die Bedeutung des Wortes ``Glanz'' betrifft, so haben viele festgestellt, dass der Mond Licht reflektiert, während die Sonne Licht ausstrahlt, weil sie seine Quelle ist. \emph{Was sagt uns das über Jesus als die Ausstrahlung Gottes und unsere Rolle als Reflektoren der Herrlichkeit Gottes?}
+
+In Hebräer 1,3 wird verkündet, dass Jesus ``der genaue Abdruck von Gottes Natur'' ist. Für die ersten Leser hätte diese Sprache an einen Eindruck erinnert, der als Bild, wie auf einer Münze, angebracht wurde. Einfach ausgedrückt: Jesus ist das wahre Abbild Gottes (2 Kor 4,4; Kol 1,15). \emph{Wie helfen uns diese Worte, das zu verstehen, was Jesus in Johannes 14,8-11 lehrte?}
+
+Nachdem er sich für die Sünden gereinigt hatte, setzte sich Jesus ``zur rechten Hand Gottes''. Viele Gelehrte glauben, dass dies eine offene Anspielung auf Psalm 110,1 ist. Dieser Psalm wird direkt in Hebräer 1,13 zitiert und in Hebräer 8,1; 10,12; 12,2 angedeutet. \emph{Was wird mitgeteilt, wenn der Autor schreibt, dass Christus ``zur Rechten Gottes gesessen hat''?}
+
+Jesus wird nicht nur den Propheten, sondern auch den Engeln wegen seines vorzüglicheren geerbten Namens für überlegen erklärt (Hebr. 1,4). Der Autor scheint 2. Samuel 7 in Bezug auf die Ehre, die Jesus als Davidischer Erbe zuteil wurde, zu wiederholen. \emph{Welche Bedeutung hat es, Jesus in der Position des königlichen Erben von den Engeln zu unterscheiden?}
+
+\begin{rmddefinition}
+\textbf{Engel -- Definition}
+
+Ein übernatürlicher Gesandter Gottes, oft gesandt, um seinen Willen zu
+erfüllen oder den Menschen bei der Erfüllung seines Willens zu helfen.
+Obwohl Engel mächtiger sind als Menschen und oft Ehrfurcht einflössen,
+sollen sie nicht angebetet werden (Kol. 2,18; Offb. 22,8-9). In der
+Bibel gibt es jedoch verschiedene Erscheinungen eines ``Engels des
+Herrn'', der offenbar eine physische Manifestation Gottes selbst ist.
+\end{rmddefinition}
+
+Lesen Sie die folgenden drei Abschnitte zu den Themen ``Einblicke in das Evangelium'', ``biblische Zusammenhänge'' und ``theologische Vertiefungen''. Nehmen Sie sich dann Zeit, über die persönlichen Auswirkungen nachzudenken, die diese Abschnitte auf Ihren Weg mit dem Herrn haben können.
+
+\hypertarget{einblicke-in-das-evangelium}{%
+\section{Einblicke in das Evangelium}\label{einblicke-in-das-evangelium}}
+
+\textbf{REINIGUNG DER SÜNDE.} Die Bibel macht deutlich, dass die Sünde und ihre Verderbnis zerstörerische Auswirkungen auf die Menschheit und die gesamte Schöpfung haben. Die Notwendigkeit der Reinigung von der Sünde ist Teil der übergreifenden Handlung der Bibel. Das kosmische Ausmass der Sünde bildet die Grundlage für die kosmische Erlösung durch den Sühnetod Jesu. Im Alten Testament wurden Sühneopfer für das Volk Gottes eingeführt, um die Strafe für seine Sünde zu vermitteln und die Reinigung durch Blut zu erlangen (Levitikus 16). Sühneopfer reinigten auch die Gegenstände des irdischen Tempels, der dem Kosmos nachempfunden ist, der Tempelbehausung Gottes. Im Hebräerbrief sehen wir, dass der Tod Jesu die notwendige Reinigung von Sünden und die Reinigung des menschlichen Gewissens vor Gott erlangte (Hebr. 1,3; 9,14). Das Opfer Jesu erstreckte sich auch auf die Reinigung ``himmlischer Dinge'' (Hebr. 9,23) und ist daher kosmisch. Das Herzstück des Evangeliums ist die gute Nachricht, dass das Blut Jesu für die Sünde gesühnt hat und Auswirkungen auf den gesamten Kosmos hat.
+
+\textbf{DIE VOLLSTÄNDIGE ERRETTUNG.} Kurz bevor Jesus seinen letzten Atemzug am Kreuz tat, verkündete er: ``Es ist vollbracht'' (Johannes 19,30). Das Werk, zu dessen Vollendung der Vater ihn gesandt hatte, war vollendet -- sein vollkommenes Opfer für unsere Sünde war vollendet (Hebr. 1,3; 9,11-12, 25-28). Der Verfasser des Hebräerbriefes weist darauf hin, dass sich Jesus, nachdem sein Werk am Kreuz und in der Auferstehung vollendet war, zur rechten Hand Gottes setzte und damit die Endgültigkeit seines Werkes und seines Status unterstrich. Im Gegensatz zu den levitischen Priestern, die Jahr für Jahr unvollkommene Opfer brachten, um die Sünden zu verdecken, brachte Jesus das perfekte Einwegopfer dar, das die Sünde auslöschte -- und dann nahm er seinen Platz ein, um für immer zu regieren (Hebr 10,11-12).
+
+\begin{rmddefinition}
+\textbf{Sünde -- Definition}
+
+Jede Verletzung oder Nichtbeachtung der Gebote Gottes oder der Wunsch,
+dies zu tun.
+\end{rmddefinition}
+
+\hypertarget{biblische-zusammenhuxe4nge}{%
+\section{Biblische Zusammenhänge}\label{biblische-zusammenhuxe4nge}}
+
+\textbf{OFFENBARUNG UND ERLÖSUNG.} Offenbarung in menschlicher Sprache ist wesentlich für die Vermittlung von Gottes Erlösungsplan durch Jesus Christus. Ohne verbale Offenbarung kann die Menschheit keinen Zugang zu der guten Nachricht von Gottes Erlösung haben. Die Offenbarung im Alten Testament steht jedoch nicht für sich allein, sie ist unvollständig ohne ihren Abschluss und ihre Erfüllung in Jesus Christus. ``In diesen letzten Tagen'' kommen wir zu der Erkenntnis, dass die Personen und Institutionen des Alten Testaments auf die Person und das Werk Jesu Christi hinweisen, in dem wir die Erlösung finden (Hebr 1,1-2).
+
+\textbf{DEr VOLLKOMMENE SOHN.} In der Bibel wird Sohnschaft mit Familienähnlichkeit, Abstammung und Erbe in Verbindung gebracht. Nicht nur Gottes erster ``Sohn'' Adam wurde nach seinem Bilde geschaffen, Adam gebar auch Söhne nach seinem eigenen Bilde und damit nach dem Bilde Gottes (1. Mose 1,28; 5,1-3). Gott bezeichnet Israel später als seinen gemeinsamen ``Sohn'' (2. Mose 4,22-23; Ps 2,7; Hos 11,1) und seinen ``Erstgeborenen'' (5. Mose 33,17; Ps 2,7; Jer 31,9; Esra 6,58). Sowohl Adam als auch Israel waren nicht das, was der Vater wollte. Beide taten nicht, was Gott von ihnen als ``Söhne'' verlangt hatte. Ihr Ungehorsam steht in krassem Gegensatz zu dem makellosen Gehorsam Jesu, des göttlich-menschlichen Sohnes, der den Vater vollkommen nachbildet und ihm Ehre bringt (Spr 10,1; 15,20; 23,15).
+
+\textbf{DIE HERRLICHKEIT GOTTES.} In der biblischen Sprache ist die Herrlichkeit Gottes ein Abbild seiner Vollkommenheit, Schönheit und Grösse. Mose 1,27 wird uns gesagt, dass Adam als Gottes Ebenbild geschaffen wurde. Als Gottes Bildträger wurde Adam -- zusammen mit dem Rest der Menschheit -- geschaffen, um Gottes Herrlichkeit widerzuspiegeln. Aber die Sünde zerstörte die reine Widerspiegelung der Herrlichkeit Gottes in Adam und seinen Kindern. Von der Sünde unvermindert wird Jesus als der zweite und letzte Adam erklärt, der Gottes Ebenbild vollständig repräsentiert und seine Herrlichkeit makellos ausstrahlt (Römer 5,12-21). Doch im Gegensatz zu Adam ist Jesus die genaue Prägung Gottes und in der Substanz identisch mit Gott (Hebr. 1,3).
+
+\hypertarget{theologische-vertiefungen}{%
+\section{Theologische Vertiefungen}\label{theologische-vertiefungen}}
+
+\textbf{SCHÖPFUNG.} Die biblische Geschichte beginnt mit einer majestätischen Beschreibung, wie Gott Himmel und Erde zu seiner Behausung schuf und wie sie von seinen Geschöpfen bewohnt wurde. In Hebräer 1,2-3 wird uns gesagt, dass Jesus nicht nur das Instrument des ursprünglichen Schöpfungsaktes in 1. Mose 1 ist, sondern auch eng in die fortgesetzte Sorge für die Schöpfung eingebunden ist (vgl. die Beschreibung Jesu in Johannes 1,1-18). Jesus war der Akteur, in dem und durch den das gesamte Universum von Raum und Zeit entstand. Als das Abbild des menschgewordenen Gottes ist Jesus der Berührungspunkt zwischen dem Schöpfer und seinem Universum. Er ist der Bezugsrahmen für den ursprünglichen Zweck und für die Erneuerung der Schöpfung Gottes nach dem Fall (Kol. 1,15-23).
+
+\textbf{VORSEHUNG.} Die Vorsehungslehre lehrt, dass Gott die von ihm geschaffene Welt erhält und sie zu den von ihm festgelegten Zielen führt. In Hebräer 1,3 sehen wir, dass Gott persönlich an seiner Schöpfung beteiligt ist, um sie zu erhalten und zu bewahren. Seine providentielle Herrschaft erstreckt sich über alle Dinge im Universum; die gesamte Schöpfung wird durch das mächtige Wort Jesu erhalten und weitergeführt. Darüber hinaus kam Jesus, um die endgültige und vollständige Reinigung für die Sünden zu gewährleisten.
+
+\hypertarget{persuxf6nliche-anwendung}{%
+\section{Persönliche Anwendung}\label{persuxf6nliche-anwendung}}
+
+Nehmen Sie sich Zeit, über die Auswirkungen von Hebräer 1,1-4 auf Ihr eigenes Leben nachzudenken. Beachten Sie die persönlichen Implikationen für Ihren Weg mit dem Herrn im Licht der (1) Einblicke in das Evangelium, (2) biblische Zusammenhänge, (3) theologischen Vertiefungen und (4) dieses Abschnitts als Ganzes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einblicke in das Evangelium
+\item
+  Biblische Zusammenhänge
+\item
+  Theologische Vertiefungen
+\item
+  Hebräer 1,1-4
+\end{enumerate}
+
+\hypertarget{wenn-sie-diese-einheit-abschliessen-.-.-.}{%
+\section{Wenn Sie diese Einheit abschliessen . . .}\label{wenn-sie-diese-einheit-abschliessen-.-.-.}}
+
+Nehmen Sie sich jetzt einen Moment Zeit, um um den Segen und die Hilfe des Herrn zu bitten, während Sie das Studium des Hebräerbriefes fortsetzen. Und nehmen Sie sich auch einen Moment Zeit, auf diese Studieneinheit zurückzublicken, über einige Dinge nachzudenken, die der Herr Sie vielleicht lehrt, und Dinge zu notieren, die Sie in Zukunft nachschauen sollten.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-2-introduction-the-supremacy-of-jesus-christ-heb-11-4}{source}
+
+\hypertarget{woche03}{%
+\chapter{Woche 3: Jesus ist den Engelswesen überlegen}\label{woche03}}
+
+\begin{rmdbible}
+\textbf{Lese Hebräer 1,5-2,18}
+\end{rmdbible}
+
+\hypertarget{bedeutung-des-abschnittess}{%
+\section{Bedeutung des Abschnittess}\label{bedeutung-des-abschnittess}}
+
+Durch eine Kette von alttestamentlichen Passagen wird Jesus als der einzige Sohn Gottes den Engeln überlegen gezeigt (Hebr. 1,5-14). Aufgrund seines Status als Sohn Gottes geniesst Jesus eine einzigartige Beziehung zum Vater in Position, Wesen und Autorität. Jesus wird auch als der einzigartige Menschensohn dargestellt, was ihn als das wahre Opfer für die Sünde etabliert und ihn als den mitfühlenden Hohenpriester einführt (Hebr. 2,1-18). Dieser Abschnitt enthält die erste von fünf Warnungen im Buch der Hebräer; hier werden wir gewarnt, auf die durch Jesus Christus bereitgestellte Rettung zu vertrauen.
+
+\hypertarget{das-gesamtbild}{%
+\section{Das Gesamtbild}\label{das-gesamtbild}}
+
+Hebräer 1,5-2,18 erhebt Jesus über die Engel als den einzigartigen Sohn Gottes, der die Sünden der Menschheit versühnte und nun als Mittler und Hoherpriester zwischen Gott und der Menschheit dient.
+
+\begin{rmddefinition}
+\textbf{Sühne -- Definition}
+
+Die Beschwichtigung des Zorns durch die Darbringung einer Gabe oder
+eines Opfers. Jesus versöhnte die Sünden der Menschheit durch sein
+Leiden und seinen Tod (Römer 3,25; Hebr 2,17; 1. Johannes 2,2; 4,10).
+\end{rmddefinition}
+
+\hypertarget{reflexion-und-diskussion}{%
+\section{Reflexion und Diskussion}\label{reflexion-und-diskussion}}
+
+Lesen Sie den Studienabschnitt, Hebräer 1,5-2,18, durch. Nachdem Sie den Abschnitt gelesen haben, lesen Sie den Abschnitt wieder und halten Sie Ihre eigenen Antworten auf die folgenden Fragen fest.
+
+\hypertarget{der-status-jesu-als-ewiger-sohn-und-kuxf6nig-hebr.-15-14}{%
+\subsection{1. Der Status Jesu als ewiger Sohn und König (Hebr. 1,5-14)}\label{der-status-jesu-als-ewiger-sohn-und-kuxf6nig-hebr.-15-14}}
+
+Der Autor unterstützt die Überlegenheit Jesu gegenüber den Engeln, indem er verschiedene Texte des Alten Testaments aneinander reiht, um seine Argumentation zu untermauern. Jesus wird durch die Art seiner Beziehung zum Vater (Hebr. 1,5), seine Stellung über die Engel (Hebr. 1,6-7) und seine königliche Autorität (Hebr. 1,8-9) als überlegen dargestellt. \emph{Wie stärkt die Anwendung alttestamentlicher Texte durch den Autor auf Jesu Sohnschaft (Ps. 2,7; 2 Sam. 7,14), seine Stellung (Ps. 97,7; 104,4) und seine Autorität (Ps. 45,6-7) unseren Glauben an Jesus heute?}
+
+Mit dem Zitat von Psalm 102,25-27 in Hebräer 1,10-12 betont der Autor die Rolle Jesu in der Schöpfung und seine ewige Natur. \emph{Wie stärken Jesu Rolle in der Schöpfung und seine ewige Herrschaft über die Schöpfung unsere Treue zu ihm?}
+
+In Hebräer 1,13 wendet der Autor Psalm 110,1 auf Jesus an und zeigt ihn als erhaben zur rechten Hand Gottes, eine Position des Vorrechts und der Macht (siehe Hebräer 1,3). Dieser spezielle Psalm bezieht sich auf die Inthronisierung des Königs und den Sieg über alle seine Feinde. \emph{Was vermittelt die Sitzhaltung Jesu über die Absichten Gottes im Leben, Tod und in der Auferstehung Christi?}
+
+Nach Hebräer 1,14 sind Engel dienende Geister, die die Aufgabe haben, denen zu dienen, die die Erlösung erben sollen. \emph{Wie spricht die Rolle der Engel zur Ehre des Evangeliums und zur Autorität von Jesus Christus?}
+
+\hypertarget{warnung-eins-vor-der-vernachluxe4ssigung-der-errettung-hebr.-21-4}{%
+\subsection{2. Warnung Eins: Vor der Vernachlässigung der Errettung (Hebr. 2,1-4)}\label{warnung-eins-vor-der-vernachluxe4ssigung-der-errettung-hebr.-21-4}}
+
+Der Autor untermauert die Verlässlichkeit des mosaischen Gesetzes dadurch, dass es von den Engeln gegeben wurde (Hebr. 2,2; siehe auch Deut. 33,2). \emph{Wenn das mosaische Gesetz mit einer Vergeltung für Ungehorsam kam, wie viel mehr werden dann diejenigen belohnt, die das von Gott dem Vater und Gott dem Sohn bezeugte und durch Zeichen, Wunder und Wundertaten bestätigte Heil ablehnen (Hebr. 2,3-4)?} \emph{Warum sollten wir ausserdem darauf achten, dass wir nicht vom Evangelium der Gnade abweichen und seine Anwendung auf unser Leben bewusst vernachlässigen (Hebr. 2,1)?}
+
+\hypertarget{jesus-als-der-gruxfcnder-des-heils-hebr.-25-18}{%
+\subsection{3. Jesus als der Gründer des Heils (Hebr. 2,5-18)}\label{jesus-als-der-gruxfcnder-des-heils-hebr.-25-18}}
+
+In Hebräer 2,5-9 heisst es, dass die gegenwärtige und die zukünftige Welt Jesus Christus unterworfen sind. Aber zum gegenwärtigen Zeitpunkt sehen die Gläubigen die höchste Herrschaft Jesu über den Kosmos nicht klar. Darüber hinaus sind die Menschen angesichts des Sündenfalls und des Versagens des Menschen, den Schöpfungsauftrag aufrechtzuerhalten, vorübergehend in ihrem Status und ihrer Autorität niedriger als die Engel (1. Mose 1,28). \emph{Wie erfüllt Jesus als der wahre Vertreter der Menschheit Gottes Gebot, alles in der Schöpfung unter die Herrschaft zu stellen (Hebr 2,8)?}
+
+In Hebräer 2,10-13 zitiert der Autor Psalm 22,22 und Jesaja 8,17b-18, um zu zeigen, dass die Nachfolger des einen einzigartigen Sohnes Gottes nun auch ``Söhne'' genannt werden, denn sie werden durch Jesu vollkommenes Leben und Opfer in die neu erlöste Menschheitsfamilie aufgenommen. \emph{Welche Vorteile hat es, ein Sohn Gottes oder ein Bruder Jesu Christi zu sein (siehe Gal 4,1-7)?}
+
+In Hebräer 2,14-18 sehen wir die Solidarität Jesu mit der Menschheit, indem er ``Fleisch und Blut'' annimmt. Doch im Gegensatz zu dem, was jeder andere Mensch hätte tun können, stürmte Jesus die Tore des Todes, besiegte den Bösen und befreite uns aus der Sklaverei bis zum Tod (Hebr. 2,14-16). \emph{Wie also gibt Hebräer 2,17-18 den Gläubigen inmitten geistlicher Gebrechen Hoffnung?}
+
+\begin{rmddefinition}
+\textbf{Gnade -- Definition}
+
+Unverdiente Gunst, insbesondere die kostenlose Gabe der Erlösung, die
+Gott den Gläubigen durch den Glauben an Jesus Christus schenkt.
+\end{rmddefinition}
+
+Lesen Sie die folgenden drei Abschnitte zu den Themen ``Einblicke in das Evangelium'', ``biblische Zusammenhänge'' und ``theologische Vertiefungen''. Nehmen Sie sich dann Zeit, über die persönlichen Auswirkungen nachzudenken, die diese Abschnitte auf Ihren Weg mit dem Herrn haben können.
+
+\hypertarget{einblicke-in-das-evangelium}{%
+\section{Einblicke in das Evangelium}\label{einblicke-in-das-evangelium}}
+
+\textbf{ZUVERLÄSSIGES EVANGELIUM.} Die Gefahr, das Evangelium Jesu Christi zu vernachlässigen, wird durch seine Überlegenheit gegenüber der vorherigen Offenbarung, die durch Propheten und Engel kam, noch erhöht (Hebr. 1,2; 2,2). Verlässlichen Augenzeugen zufolge verkündete Jesus selbst zuerst seine gute Nachricht (Hebr. 2,3). Darüber hinaus bestätigte Gott diese von Jesus verkündete gute Nachricht mit Zeichen, Wundern, Wundertaten und Gaben des Heiligen Geistes (Apg 2,22; 2. Kor 12,12; Hebr 2,4). Das Evangelium ist nicht nur eine gute Nachricht; es ist eine verlässliche gute Nachricht - eine gute Nachricht, auf die es sich lohnt, unser Leben zu riskieren.
+
+\textbf{DER GUTE KÖNIG.} Im ersten Jahrhundert wurde das ``Evangelium'' (``gute Nachricht'') regelmässig verwendet, um die Geburt, die Verkündigung, die Thronbesteigung oder den Sieg eines grossen Königs zu bezeichnen. Nach Hebräer 1,8 ist Jesus der ewige messianische König, dessen Herrschaft nie enden wird. Im Gegensatz zu den davidischen Königen der Vergangenheit wird seine Herrschaft nicht durch Zerbrechlichkeit behindert. Die Herrschaft Jesu ist von vollkommener Gerechtigkeit und Rechtschaffenheit geprägt. Die königliche Herrschaft Jesu ist auch insofern gut, als er sein Volk befreit, heiligt und für es sorgt (Hebr. 1,8; 2,6; 9-18). Schliesslich wird Jesus, anders als jeder andere König in der Geschichte, für immer und ewig als König der Könige regieren (Offb 5,9-14).
+
+\textbf{TRANK TIEF AUS DEM TOD.} Als vollkommenes Opfer kostete Jesus den Tod für alle, die glauben (Hebr. 2,9). Mehr noch, Jesus trank den Kelch des Zornes Gottes bis zum bitteren Abschaum, um den Zorn Gottes für die Gläubigen zu verzehren und so den Todesgriff des Teufels zu zerstören (Hebr. 2,14-15, 17). In Christus gibt es keine Angst im Tod, sondern nur Hoffnung im Leben. Am Kreuz hat Jesus die Macht des Todes beseitigt. In seiner mächtigen Auferstehung besiegelte Jesus die Verheissung eines neuen ewigen Lebens.
+
+\hypertarget{biblische-zusammenhuxe4nge}{%
+\section{Biblische Zusammenhänge}\label{biblische-zusammenhuxe4nge}}
+
+\textbf{VERWALTETER KÖNIG.} In Hebräer 1,5b greift der Autor die Verkündigung König Davids über seinen Bundeserben auf, den Gott als seinen eigenen Sohn einsetzen wird (2 Sam 7,14; 1 Chron 17,13). Im Zusammenhang mit 2 Samuel ist dies sicherlich Salomo. Während diese Worte in Salomo nie verwirklicht wurden, haben sie ihre Erfüllung in Jesus gefunden, der der wahre und grössere Davidskönig ist, dessen Königreich für immer errichtet ist (2. Sam. 7,16). Daher findet die königliche Herrschaft, die die israelitischen Könige vorausgesagt haben - die aber nicht als Vertreter Gottes auf Erden aufrecht erhalten werden konnte - ihre Erfüllung in Jesus (Hebr. 2,8-9; Offb. 3,21). Die Könige des Alten Testaments sind die Schatten; Jesus ist die Substanz. Jesus ist der ewige König der Könige, dessen vollkommene Herrschaft und Gerechtigkeit niemals enden wird.
+
+\textbf{DER GEISTLICHE EXODUS.} Der Autor des Hebräerbriefes bezeichnet Jesus nicht nur als den Gründer des Heils, sondern auch als denjenigen, der das Volk des neuen Bundes in die Herrlichkeit führt (Hebr. 2,10). Einige Bibelversionen übersetzen ``Gründer'' mit ``Pionier''. Die Symbolik von Jesus, der unsere Rettung vorbereitet hat, blickt im Alten Testament auf diejenigen zurück, die die Israeliten durch die Wüste und auch in die Schlacht geführt haben (Num. 10,4; 13,2-3; Jud. 5,15; 9,44; 11,6-11; 1 Chron. 5,24; 26,26; 2. Chron. 23,14; Neh. 2,9). Als Vorläufer und Vertreter seines Volkes ist Jesus in die Gegenwart Gottes eingetreten, um ihnen den Eintritt in die Gegenwart Gottes zu sichern; er ist der Weg geworden, auf dem sie in die verheissene Ruhe Gottes eintreten können. Jesus ist der wahre und grössere Mose, der sein ganzes Volk in Gottes Ruhe erlöst.
+
+\textbf{BESCHAFFUNG.} Das Wort ``Versöhnung'' vermittelt den Sinn eines Sühneopfers, das den Zorn Gottes gegen die Sünde befriedigt (Römer 3,25; Hebr 2,17). In der gesamten Erlösungsgeschichte wird Gottes gerechter Zorn als Notwendigkeit gezeigt, besänftigt zu werden, bevor die Sünde des Volkes Gottes vergeben werden kann. Die endgültige Versöhnung durch Christus, die ein für allemal den vollen Lohn für die Sünde bringt, wird im Alten Testament mehrmals angedeutet (Ex 32,11-14; Num 25,8; Josh 7,25-26). Wo die alttestamentlichen Opfer versagten, gelang es Jesus, Gottes Zorn ein für allemal gegen die Sünde seines Volkes zu versöhnen.
+
+\begin{rmddefinition}
+\textbf{Erlösung -- Definition}
+
+Befreiung von den ewigen Folgen der Sünde. Der Tod und die Auferstehung
+Jesu erkauften den Gläubigen ewige Erlösung (Römer 1,16).
+\end{rmddefinition}
+
+\hypertarget{theologische-vertiefungen}{%
+\section{Theologische Vertiefungen}\label{theologische-vertiefungen}}
+
+\textbf{ANGELS.} Nach der Heiligen Schrift sind Engel majestätische, erschaffene Wesen, die in erster Linie als Anbeter und Boten Gottes fungieren, seinen Willen offenbaren und Schlüsselereignisse in der gesamten Erlösungsgeschichte ankündigen (Dan 9,20-27; Lukas 1,11-20; Apg 7,38; Hebr 2,2). Engel dienen auch dem Volk Gottes (1. Könige 19,5-7; Ps. 91,11; Hebr. 1,14). Die Pracht der Engel dient als Bezugspunkt, von dem aus der Autor der Hebräer von der viel höheren Stellung des erhabenen Sohnes sprechen kann (Hebr. 1,5-13). Die Anbetung Christi durch die Engel, wenn er in den Himmel kommt, festigt seine überragende Stellung (Hebr. 1,6). Obwohl Engel schöne und mächtige Wesen sind, übertrifft die Schönheit und Macht Christi die ihre exponentiell.
+
+\textbf{MENSCHLICHKEIT JESU.} Während seiner Zeit auf der Erde wurde Jesus als der inkarnierte Gottmensch niedriger als die Engel gemacht, indem er voll an menschlichem Fleisch und Blut teilhatte (Hebr. 2,9.14). Die Menschlichkeit Christi war notwendig, damit er Versuchungen und Leiden ertragen und so als das einzige wahre Opfer für die Sünde dienen konnte. Wenn Jesus nicht in jeder Hinsicht (ausser der Sünde) menschlich wurde und die ganze Bandbreite der Versuchung erfuhr, konnte er nicht als mitfühlender Hohepriester dienen, der die geistlichen Gebrechen der Menschen kennt.
+
+\textbf{WUNDER.} In der Bibel sind Wunder Gottes nicht-normative Machttaten, durch die er von sich selbst Zeugnis ablegt und seine Boten und seine Botschaft beglaubigt (Johannes 2,11; 3,2; Apostelgeschichte 2,22). In der frühen Kirche vollbrachten die Apostel und andere ebenfalls Wunder, um die Gültigkeit der von ihnen verkündeten Evangeliumsbotschaft zu bestätigen (Apg 2,43; 3,6-10; 4,30; 8,6-8,13; 9,40-42). In Hebräer 2,3-4 lesen wir, dass Gott die Botschaft der Erlösung selbst durch Zeichen und Wunder bestätigt hat.
+
+\hypertarget{persuxf6nliche-anwendung}{%
+\section{Persönliche Anwendung}\label{persuxf6nliche-anwendung}}
+
+Nehmen Sie sich Zeit, über die Auswirkungen von Hebräer 1,5-2,18 auf Ihr eigenes Leben nachzudenken. Beachten Sie die persönlichen Implikationen für Ihren Weg mit dem Herrn im Licht der (1) Einblicke in das Evangelium, (2) biblische Zusammenhänge, (3) theologischen Vertiefungen und (4) dieses Abschnitts als Ganzes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einblicke in das Evangelium
+\item
+  Biblische Zusammenhänge
+\item
+  Theologische Vertiefungen
+\item
+  Hebräer 1,5-2,18
+\end{enumerate}
+
+\hypertarget{wenn-sie-diese-einheit-abschliessen-.-.-.}{%
+\section{Wenn Sie diese Einheit abschliessen . . .}\label{wenn-sie-diese-einheit-abschliessen-.-.-.}}
+
+Nehmen Sie sich jetzt einen Moment Zeit, um um den Segen und die Hilfe des Herrn zu bitten, während Sie das Studium des Hebräerbriefes fortsetzen. Und nehmen Sie sich auch einen Moment Zeit, auf diese Studieneinheit zurückzublicken, über einige Dinge nachzudenken, die der Herr Sie vielleicht lehrt, und Dinge zu notieren, die Sie in Zukunft nachschauen sollten.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-3-jesus-is-superior-to-angelic-beings-heb-15-218}{source}
+
+\hypertarget{woche04}{%
+\chapter{Woche 4: Jesus ist Mose überlegen}\label{woche04}}
+
+\begin{rmdbible}
+\textbf{Lese Hebräer 3,1-4,13}
+\end{rmdbible}
+
+\hypertarget{bedeutung-des-abschnittes}{%
+\section{Bedeutung des Abschnittes}\label{bedeutung-des-abschnittes}}
+
+In Hebräer 3,1-6 wird gezeigt, dass Jesus Moses, einem der treuesten Knechte Gottes, überlegen ist. Jesus ist der höchsten Ehre würdig, weil er der treue Hohepriester und Sohn Gottes ist. Der Autor ermahnt die Christen, mit Treue und Ausdauer auf Gottes Erlösungswerk zu antworten (Hebräer 3,7-4,13). In diesem Abschnitt erhalten die Leser ihre zweite Warnung, nämlich die, im Gegensatz zu den Menschen der Exodus-Generation, die ihre Herzen verhärtet haben, im Glauben auszuharren (Hebräer 3,7-18).
+
+\hypertarget{das-gesamtbild}{%
+\section{Das Gesamtbild}\label{das-gesamtbild}}
+
+Hebräer 3,1-4,13 zeigt Jesus Christus als den Apostel und vollkommenen Sohn, der gesandt wurde, um als treuer Hohepriester zu dienen.
+
+\hypertarget{reflexion-und-diskussion}{%
+\section{Reflexion und Diskussion}\label{reflexion-und-diskussion}}
+
+Lesen Sie den Studienabschnitt, Hebräer 3,1-4,13, durch. Nachdem Sie den Abschnitt gelesen haben, lesen Sie den Abschnitt wieder und halten Sie Ihre eigenen Antworten auf die folgenden Fragen fest.
+
+\hypertarget{jesus-ist-gruxf6sser-als-moses-hebruxe4er-31-6}{%
+\subsection{1. Jesus ist grösser als Moses (Hebräer 3,1-6)}\label{jesus-ist-gruxf6sser-als-moses-hebruxe4er-31-6}}
+
+In Hebräer 3,1-2 bekennt sich Jesus als der Apostel, der gesandt wurde, um Befreiung zu bringen, und als der Hohepriester, der die Sünden des Volkes Gottes sühnen soll. Was bedeutet es, als heilige Mitglieder der Familie Gottes ``an einer himmlischen Berufung teilzuhaben'' (Hebräer 3,1)? Wie kann die Treue Jesu uns ermutigen, im Vertrauen und in der Hoffnung an unserer himmlischen Berufung festzuhalten (Hebräer 3,6)?
+
+Mose war ein treuer Knecht im Haus Gottes trotz der Treulosigkeit der Israeliten (Num 12,7). Aber Jesus ist wegen seiner vollkommenen Treue als der Sohn, der nicht nur dem Haus Gottes vorsteht, sondern es auch gebaut hat, einer grösseren Ehre würdig als Mose (1. Chron. 17,14-17; Hebräer 3,1-6). Welche Bedeutung hatte für die ursprüngliche Zuhörerschaft - die mit dem Alten Testament vertraut war - der Vergleich des Autors mit Jesus und Mose? Was können wir von der Treue des Mose als Mitglied des Hauses Gottes lernen?
+
+\hypertarget{warnung-zwei-das-versagen-der-exodus-generation-hebruxe4er-37-19}{%
+\subsection{2. Warnung Zwei: Das Versagen der Exodus-Generation (Hebräer 3,7-19)}\label{warnung-zwei-das-versagen-der-exodus-generation-hebruxe4er-37-19}}
+
+Nachdem der Autor den Kontrast zwischen der Treue von Moses und Jesus untersucht hat, wendet er sich nun den Antworten ihrer Anhänger zu, indem er Psalm 95,7-11 zitiert. Der Autor warnt vor dem Unglauben eines sündigen, verhärteten Herzens, das einen zum Abfall veranlasst (Hebräer 3,7-12). Wie tragen diese starken Worte dazu bei, uns davon abzuhalten, in der Rebellion zu leben? Wie erleuchtet uns dieser Abschnitt über den Unterschied zwischen echtem und falschem Glauben?
+
+In Hebräer 3,13-14 erklärt der Autor, wie gegenseitige Ermutigung und Rechenschaftspflicht das Gegenmittel gegen die Zersetzung des Unglaubens sein können. Wie hält die Befolgung der Ermahnung zu gegenseitiger Verpflichtung im Teilen Christi Christen dazu an, bis zum Ende durchzuhalten?
+
+In Hebräer 3,15 kehrt der Autor zu Psalm 95,7-8 zurück und erinnert die Leser an die Misserfolge der Exodusgeneration (Hebräer 3,16-19; siehe Ex 17,1-7; Num 14,20-38). Wie weist der Unglaube der Exodus-Generation und ihr Versagen, in Gottes Ruhe zu gehen, sowohl auf die Warnung vor dem Abfall als auch auf die Hoffnung hin, die wir in Jesus Christus haben?
+
+\hypertarget{in-gottes-ruhe-eintreten-hebruxe4er-41-13}{%
+\subsection{3. In Gottes Ruhe eintreten (Hebräer 4,1-13)}\label{in-gottes-ruhe-eintreten-hebruxe4er-41-13}}
+
+Gottes Befreiung der Israeliten und ihre Hoffnung, das verheissene Land zu betreten, war ein Vorzeichen für das Werk Jesu. Für die Kirche ist die verheissene Ruhe Gottes in der Auferstehung Christi eingeweiht worden und wartet auf die Vollendung bei seinem zweiten Kommen; aber der Autor fürchtet, dass einige nicht in diese Ruhe eintreten werden (Hebr 4,1). Wie verhält sich der Glaube nach Hebräer 4,1-3 dazu, in die verheissene Ruhe Gottes einzutreten?
+
+In Hebräer 4,4 spricht der Autor von der Einkehr in Gottes Ruhe in Bezug auf den siebten Schöpfungstag (1. Mose 2,2) und stellt fest, dass die Israeliten es letztlich versäumt haben, in die Ruhe Gottes einzutreten (Hebräer 4,5-9). Zusammengenommen ist Gottes Sabbatruhe, die in Genesis 2 begann, immer noch offen und kann betreten werden. Was bedeutet es, in seine Werke einzutreten und von ihnen zu ruhen, wie Gott von seinen Werken (Hebräer 4,10)?
+
+Nachdem der Autor die Leser aufgerufen hat, sich darum zu bemühen, in Beharrlichkeit in Gottes Ruhe einzutreten, erinnert er sie daran, dass treuloser Ungehorsam nicht unbemerkt bleiben wird (Hebräer 4,11-13). Wenn wir wissen, dass Gottes Wort wie ein Mittel wirkt, das die innersten Gedanken und Absichten offenbart, wie können wir dann sein Wort benutzen, um Ungehorsam und Unglauben zu bekämpfen?
+
+\begin{rmddefinition}
+\textbf{Sabbat -- Definition}
+
+Samstag, der siebte Tag der Woche, der jüdische Tag der Anbetung und der
+Ruhe (1. Mose 2,2-3; Ex 31,13-17). Christen treffen sich am Sonntag, dem
+Tag der Auferstehung Christi (Apg 20,7), zum Gottesdienst und betrachten
+den Sonntag statt des Samstags als ihren wöchentlichen Ruhetag. Und doch
+freuen sich die Gläubigen auf eine ewige Sabbatruhe (Hebr 4,1-13).
+\end{rmddefinition}
+
+\begin{rmddefinition}
+\textbf{Werke -- Definition}
+
+Handlungen und Einstellungen, entweder gut oder schlecht. Wahrer Glaube
+an Christus wird unweigerlich gute Werke hervorbringen, die Gott
+wohlgefällig sind. Gute Werke können niemals die Grundlage oder das
+Mittel zur Erlösung sein, die allein aus Gnade durch den Glauben
+erfolgt.
+\end{rmddefinition}
+
+Lesen Sie die folgenden drei Abschnitte zu den Themen ``Einblicke in das Evangelium'', ``biblische Zusammenhänge'' und ``theologische Vertiefungen''. Nehmen Sie sich dann Zeit, über die persönlichen Auswirkungen nachzudenken, die diese Abschnitte auf Ihren Weg mit dem Herrn haben können.
+
+\hypertarget{einblicke-in-das-evangelium}{%
+\section{Einblicke in das Evangelium}\label{einblicke-in-das-evangelium}}
+
+\textbf{BEHARRLICHER GLAUBE.} Diejenigen, die beharrlichen Glauben zeigen, werden nicht im Unglauben abfallen (Hebräer 3,14). Die Selbstprüfung in Verbindung mit dem Glauben an das Evangelium bewahrt vor der Entwicklung eines verhärteten Herzens. Deshalb sollten wir wachsam sein und an unserem ursprünglichen Vertrauen in das Evangelium Jesu Christi bis zum Ende festhalten und Gottes Wort dazu benutzen, jeglichen Unglauben oder Ungehorsam zu offenbaren (Hebräer 3,12-13). Beharrlichkeit im Glauben ist ein Mittel der Sicherheit, die Gläubige im christlichen Leben haben (Hebräer 3,6). Glücklicherweise ist es die Gnade Gottes, die uns rettet und bis zum Ende erhält.
+
+\textbf{SABBATS RUHE.} Im Evangelium gibt Gott seinem Volk die Sabbatruhe (Hebräer 4,9-10). Im Schöpfungsbericht lesen wir, dass Gott am siebten Tag ruhte, weil sein Werk vollendet war (1. Mose 2,2). Die Menschheit ahmt das Muster von Gottes Werk und Ruhe im Sabbatzyklus nach (Ex 20,8-11; Levitikus 25). Der Sabbat weist nach vorn auf die Ruhe, die Christus mit seiner Auferstehung und Himmelfahrt erreicht hat (Hebräer 10,12-13). Christen treten in eine tiefe Ruhe der Seele ein, wenn sie bekennen, dass das Erlösungswerk Jesu vollendet war, als er erklärte: ``Es ist vollbracht'', und dann, als er von den Toten auferstand (Johannes 19,30; 20,19). Die Kirche wartet nun auf Jesu zweites Kommen, bei dem sich Gottes Ruhe vollständig offenbaren wird (Offenbarung 22,3-5). Bis zu diesem Tag sind die Gläubigen aufgerufen, in Christi Erlösung zu ruhen und der Versuchung zu widerstehen, in die Gerechtigkeit der Werke zurückzufallen (Galater 2,16; 3,10-14).
+
+\hypertarget{biblische-zusammenhuxe4nge}{%
+\section{Biblische Zusammenhänge}\label{biblische-zusammenhuxe4nge}}
+
+\textbf{TREUER KNECHT.} Mose erfüllte treu die von Gott festgelegten Aufgaben als Befreier aus der Sklaverei in Ägypten, als Führer des Exodus und als Gesetzgeber (2. Mose 3,10; 5. Mose 18,15-19). Jesus ist insofern grösser als Mose, als er sein Volk aus der grösseren Sklaverei von Sünde und Tod befreit und in die verheissene ewige Ruhe Gottes führt.
+
+\textbf{DEN SOHN DES MENSCHEN.} Der Titel, den Jesus mehr als jeder andere verwendet, um sich auf sich selbst zu beziehen, ist ``der Menschensohn'' (z.B. Matthäus 8,20; 11,19). Obwohl diese Bezeichnung die Menschlichkeit Jesu unterstreichen mag, ist der Ausdruck am wichtigsten in Bezug auf die Gestalt in Daniel 7, die von Gott die höchste Autorität und ein ewiges Königreich erhält (siehe Daniel 7,13-14; Matthäus 26,64; Markus 14,62). Und als der vollkommene Sohn hält Jesus treu die Gesamtheit des Gesetzes aufrecht und befähigt ihn, als Hoherpriester und ewiger König zu dienen (Hebräer 3,1-6).
+
+\textbf{EXODUS ZUR VERHEISSUNG.} Das Volk der Exodus-Generation konnte aufgrund seines Unglaubens und Ungehorsams nicht in den Rest Gottes (das verheissene Land) einziehen (Num. 14,20-24; 20,12). Das Muster des Exodus wiederholt sich in der Befreiung der Kirche von Sünde und Tod und in ihrer zukünftigen Befreiung von der verheissenen ewigen Ruhe Gottes. Im Gegensatz zur Exodus-Generation ist Jesus der wahre Israelit, dessen Treue zu Gott vollkommen ist. Im Gegensatz zu Mose und Josua ist Jesus in der Lage, jeden einzelnen seines Volkes zu erhalten und der versprochenen Ruhe Gottes zu übergeben (Hebräer 4,1-16).
+
+\hypertarget{theologische-sondierungen}{%
+\section{Theologische Sondierungen}\label{theologische-sondierungen}}
+
+\textbf{HAUS GOTTES.} Wie andere Metaphern für das Volk Gottes bezieht sich ``Haus'' auf die gemeinsame Identität der Kirche als Gottes Wohnung (1. Korinther 3,16; 6,19; 2. Korinther 6,16; 1 Timotheus 3,15; 1 Petrus 2,5). Jesus hat als Sohn (Hebräer 3,6), als Baumeister (Hebräer 3,3-4) und als wichtigster Eckstein (Epheser 2,20-21) einen privilegierten Platz in Gottes Haus. Das Haus Gottes ist durch den Glauben geeint und aufgefordert, sich gegenseitig zu Glauben, Gehorsam und Ausdauer zu ermutigen.
+
+\textbf{GOTTES WORT.} Die Bibel ist ein göttlich-menschliches Wort, das uns von Gott durch Menschen innerhalb der Erlösungsgeschichte gegeben wurde, die darüber Zeugnis ablegen, wer Gott ist und was er getan hat. Die Bibel ist Gottes persönliche Äusserung an uns, die als Gott selbst handelt, unsere Herzen sucht und offenbart. Durch Gottes geschriebenes Wort kann sein Volk Irrtümer aufdecken, in der Christusähnlichkeit wachsen und Verständnis dafür gewinnen, was es bedeutet, ein gottgefälliges Leben zu führen (Hebräer 4,12; 2. Timotheus 3,16).
+
+\hypertarget{persuxf6nliche-anwendung}{%
+\section{Persönliche Anwendung}\label{persuxf6nliche-anwendung}}
+
+Nehmen Sie sich Zeit, über die Auswirkungen von Hebräer 3,1-4,13 auf Ihr eigenes Leben nachzudenken. Beachten Sie die persönlichen Implikationen für Ihren Weg mit dem Herrn im Licht der (1) Einblicke in das Evangelium, (2) biblische Zusammenhänge, (3) theologischen Vertiefungen und (4) dieses Abschnitts als Ganzes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einblicke in das Evangelium
+\item
+  Biblische Zusammenhänge
+\item
+  Theologische Vertiefungen
+\item
+  Hebräer 3,1-4,13
+\end{enumerate}
+
+\hypertarget{wenn-sie-diese-einheit-abschliessen-.-.-.}{%
+\section{Wenn Sie diese Einheit abschliessen . . .}\label{wenn-sie-diese-einheit-abschliessen-.-.-.}}
+
+Nehmen Sie sich jetzt einen Moment Zeit, um um den Segen und die Hilfe des Herrn zu bitten, während Sie das Studium des Hebräerbriefes fortsetzen. Und nehmen Sie sich auch einen Moment Zeit, auf diese Studieneinheit zurückzublicken, über einige Dinge nachzudenken, die der Herr Sie vielleicht lehrt, und Dinge zu notieren, die Sie in Zukunft nachschauen sollten.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-4-jesus-is-superior-to-moses-heb-31-413}{source}
+
+\hypertarget{woche05}{%
+\chapter{Woche 5: Jesus ist der oberste Hohepriester, Teil 1}\label{woche05}}
+
+\begin{rmdbible}
+\textbf{Lese Hebräer 4,14-5,10}
+\end{rmdbible}
+
+\hypertarget{bedeutung-des-abschnittes}{%
+\section{Bedeutung des Abschnittes}\label{bedeutung-des-abschnittes}}
+
+Der Autor baut nun auf den Themen auf, die zuerst in Hebräer 2,17-3,12 eingeführt wurden. Er verkündet Jesus als den heiligen und mitfühlenden Hohenpriester, der von Gott dem Vater ernannt wurde. Darüber hinaus soll Christus um der anderen willen leiden, damit sie die Gabe der ewigen Errettung empfangen können (Hebräer 4,14-5,10). Treue ist die angemessene Antwort auf alles, was Christus für uns getan hat.
+
+\hypertarget{das-gesamtbild}{%
+\section{Das Gesamtbild}\label{das-gesamtbild}}
+
+In Hebräer 4,14-5,10 wird Jesus Christus, der sündlose Sohn Gottes, als der ernannte mitfühlende Hohepriester nach der Ordnung Melchisedeks gepriesen.
+
+\hypertarget{reflexion-und-diskussion}{%
+\section{Reflexion und Diskussion}\label{reflexion-und-diskussion}}
+
+Lesen Sie den Studienabschnitt, Hebräer 4,14-5,10, durch. Nachdem Sie den Abschnitt gelesen haben, lesen Sie den Abschnitt wieder und halten Sie Ihre eigenen Antworten auf die folgenden Fragen fest.
+
+\hypertarget{jesus-der-grosse-hohepriester-hebr.-414-510}{%
+\subsection{Jesus, der grosse Hohepriester (Hebr. 4,14-5,10)}\label{jesus-der-grosse-hohepriester-hebr.-414-510}}
+
+Der Autor kündigte Jesu Rolle als Hohepriester in Hebräer 2,17 an; hier in Hebräer 4,14-16 wird Jesu Rolle als Hohepriester näher erläutert. Jesus ist ``durch die Himmel gegangen'' und sitzt nun zur Rechten Gottes (Hebräer 1,13; 4,14). Unser grosser Hohepriester ist nicht nur der göttliche Sohn-Gott selbst - er ist auch ganz Mensch und in der Lage, mit uns zu sympathisieren (Hebräer 4,15). In welch einzigartiger Weise kann Jesus mit uns mitfühlen, da er sowohl mit dem Himmel als auch mit der Erde eng vertraut ist?
+
+Nach diesem Abschnitt muss der Hohepriester von Gott in sein Amt berufen werden und in der Lage sein, mit denen, die er vertritt, zu sympathisieren. Wie befähigt uns das Wissen, dass Jesus unser grosser Hohepriester ist, an unserem Glauben festzuhalten?
+
+Der Autor ermahnt den Leser, sich vertrauensvoll dem Thron der Gnade zu nähern, um Barmherzigkeit und Hilfe in Zeiten der Not zu finden (Hebräer 4,16). Obwohl wir immer noch mit der innewohnenden Sünde kämpfen, wird Gottes heiliger Thron durch Christus zu einem Thron der Gnade. Wie gibt uns das Ansporn zu Gebet und Lobpreis? Warum sind Christen in der Lage, ehrlich vor Gott zu reden, ohne Angst vor Verdammnis?
+
+Hohe Priester erhalten ihren Berufung und ihre Aufgabe von Gott dem Allmächtigen. Was ist nach Hebräer 5,1-2 die wesentliche Aufgabe des Hohepriesters? In welcher Weise erfüllen Leben und Werk Jesu die hohepriesterlichen Kriterien (Hebräer 5,1-2.5)? Inwiefern unterscheidet sich Jesus von früheren Hohepriestern und ist grösser als sie (Hebräer 5,3)?
+In Hebräer 5,5-6 weist der Verfasser noch einmal auf Psalm 2,7 und Psalm 110 hin, um von Christus als dem Sohn und ewigen Hohepriester in der Ordnung Melchisedeks zu sprechen. Warum wird Jesus mit Melchisedek verglichen (1. Mose 14,18-20)?
+
+Während seines Erdenlebens hat Jesus mit lautem Schreien und unter Tränen intensive, herzliche, ehrfürchtige und unterwürfige Gebete zu Gott, dem Vater, gesprochen (Hebräer 5,7; siehe z.B. Lukas 22,39-46). Der vollkommene Gehorsam Jesu bildete die Grundlage dafür, dass seine Gebete erhört wurden (Hebräer 5,8). Wie können wir in Zeiten des Kampfes von Christi vollkommenem Gebetsleben lernen und, was noch wichtiger ist, uns auf dieses stützen?
+
+In Hebräer 5,8-9 wird erklärt, dass Jesus durch das, was er erlitt, Gehorsam lernte und dadurch vollkommen wurde. Im Wesentlichen wurde Jesus in dem Sinne ``vollkommen gemacht'', dass er durch seinen vollkommenen Gehorsam qualifiziert wurde, allen Gläubigen die Quelle der Erlösung zu sein (Hebräer 5,9). Wie kann uns die Erfahrung und Vollkommenheit Jesu Hoffnung geben, wenn uns der von Gott gewollte Gehorsam fehlt?
+
+\begin{rmddefinition}
+\textbf{Barmherzigkeit -- Definition}
+
+Mitgefühl und Freundlichkeit gegenüber jemandem, der Not leidet,
+manchmal sogar dann, wenn dieses Leiden auf die eigene Sünde oder
+Dummheit zurückzuführen ist. Gott zeigt Barmherzigkeit gegenüber seinem
+Volk, und dieses wiederum ist aufgerufen, Barmherzigkeit gegenüber
+anderen zu zeigen (Lukas 6,36).
+\end{rmddefinition}
+
+\begin{rmddefinition}
+\textbf{Priest -- Definition}
+
+Im alttestamentlichen Israel vertrat der Priester das Volk vor Gott und
+vertrat Gott vor dem Volk. Nur diejenigen, die von Aaron abstammten,
+konnten Priester sein. Zu ihren vorgeschriebenen Aufgaben gehörten auch
+die Inspektion und Entgegennahme von Opfern aus dem Volk und die
+Überwachung der täglichen Aktivitäten und der Instandhaltung der
+Stiftshütte oder des Tempels.
+\end{rmddefinition}
+
+Lesen Sie die folgenden drei Abschnitte zu den Themen ``Einblicke in das Evangelium'', ``biblische Zusammenhänge'' und ``theologische Vertiefungen''. Nehmen Sie sich dann Zeit, über die persönlichen Auswirkungen nachzudenken, die diese Abschnitte auf Ihren Weg mit dem Herrn haben können.
+
+\hypertarget{einblicke-in-das-evangelium}{%
+\section{Einblicke in das Evangelium}\label{einblicke-in-das-evangelium}}
+
+\textbf{VERSUCHUNG OHNE SÜNDE.} Die Versuchung kann als die Absicht gesehen werden, uns zu Fall zu bringen, oder sie kann als Prüfung angesehen werden, um uns in der Heiligung aufzubauen (Matthäus 4,1-11; Lukas 22,28). Jesus wurde in jedem Bereich des Lebens versucht, doch im Gegensatz zu jedem anderen Menschen blieb er frei von Sünde. Christen können Trost darin finden, dass Jesus in der Versuchung mit ihnen mitfühlen kann, und im Wissen, dass Jesus vollkommen treu und gehorsam blieb, wo sie sich der Sünde hingeben (Hebräer 4,15). Wichtiger noch: Wenn wir der Versuchung nachgeben, werden wir von Gott nicht endgültig verurteilt. Der vollkommene Gehorsam Christi ist uns zugeschrieben worden, und wir werden durch seinen Geist zur Busse gezogen werden, und durch seine Gnade wird uns vergeben werden.
+
+\textbf{THRON DER GNADE.} Ein Thron ist ein Sinnbild für Autorität, Majestät und Macht. Der Thron Gottes ist ein heiliger Thron (Psalm 47,8) und ist ein Ort des Gerichts und der Verurteilung der Sünde. Aufgrund des vollendeten Werkes Christi am Kreuz sind Christen jedoch aufgerufen, sich mutig dem Thron Gottes zu nähern. Da Jesus zu seiner Rechten sitzt (Hebräer 4,16; 8,1; 12,2) und für die Heiligen Fürbitte einlegt (Hebräer 7,25; 10,22), sorgt Gott der Vater gnädig für die Vergebung der Sünden und gibt den Christen Kraft, die Versuchung zu überwinden (Hebräer 2,18). In Demut und Zuversicht können wir unsere Sünde bekennen und wissen, dass Gott uns vergeben und uns Gnade erweisen wird.
+
+\textbf{EWIGE ERRETTUNG.} Der vollkommene Gehorsam (Hebräer 5,8; 7,26-28) und das Opfer Jesu bilden die Grundlage für die Errettung aus Gnade durch den Glauben. Die Errettung durch Christus ist ewig (Hebräer 2,10; 9,23-28), weil das Opfer Jesu ein für allemal gebracht wurde (Hebräer 10,12). Als Gläubige werden wir von Christus gehalten und mit dem Geist versiegelt bis zum letzten Tag (Johannes 10:28; 2. Korinther 1:22). Am letzten Tag wird Christus die Seinen beanspruchen vor dem Vater im Himmel (Offenbarung 3:5).
+
+\hypertarget{biblische-zusammenhuxe4nge}{%
+\section{Biblische Zusammenhänge}\label{biblische-zusammenhuxe4nge}}
+
+\textbf{HOHEPRIESTER.} Im mosaischen Priestertum diente der levitische Hohepriester als religiöses Oberhaupt seines Volkes und Mittler zwischen Gott und Mensch. Der Hohepriester war der einzige, dem es erlaubt war, den inneren Teil des Tempels zu betreten, in dem Gott wohnte, um für sein Volk Sühne zu leisten (2. Mose 26,33; 3. Mose 16). Indem er das vollkommene Opfer für die Sünde darbrachte, öffnete der wahre und grössere Hohepriester Jesus dem ganzen Volk Gottes den Weg, um in die Fülle der Gegenwart Gottes einzutreten (Hebräer 7,27). Während die levitischen Priester vorübergehend waren, dient Jesus als ständiger und ewiger Hohepriester (Hebräer 7:23-24). Aufgrund des Wirkens Christi können wir uns Gott immer vertrauensvoll nähern (Hebräer 4,14-16).
+
+\textbf{MELCHISEDEK.} Melchisedek war zur Zeit Abrahams ein ``König-Priester''-König von Salem und Priester Gottes (1. Mose 14:17-20; Psalm 110:4). Melchisedek dient als ein Typus für Jesus als König-Priester. Melchisedeks Name wird als ``König der Gerechtigkeit'' und sein Titel als König von Salem als ``König des Friedens'' interpretiert, was Jesu Herrschaft von Gerechtigkeit und Frieden vorwegnimmt (Hebräer 7:1-10).
+
+\hypertarget{theologische-sondierungen}{%
+\section{Theologische Sondierungen}\label{theologische-sondierungen}}
+
+\textbf{JESUS BEGRENZUNGEN.} Die Menschlichkeit des Gottessohnes brachte ihm gewisse Begrenzungen. Er wurde als hilfloser Säugling geboren und wuchs ins Erwachsenenalter hinein, genau wie wir anderen auch (Lukas 2,7; 2,40.52). Er wurde müde und hungrig, wie alle Menschen (Johannes 4,6; 19,28; Matthäus 4,2). Jesus hatte auch die ganze Bandbreite menschlicher Gefühle. Vor seiner Kreuzigung, als er sich der Realität stellte, für die Sünden der Menschheit abgeschlachtet zu werden, war seine Seele traurig, sogar bis zum Tod (Matthäus 26,38). Sein Herz war oft voller Emotionen, wenn er zum Vater betete (Hebräer 5,7). Jesus gewann während seines ganzen Lebens an moralischer Stärke, als er das Werk vollendete, zu dessen Vollendung sein Vater ihn gesandt hatte. Bei all dem blieb er ohne Sünde (Hebräer 4,15; 5,8).
+
+\textbf{PERSÖNLICHER GOTT.} Der Gott der Bibel ist keine abstrakte Gottheit, die von seiner Schöpfung entfernt ist; er ist ein persönlicher Gott, der sich auf seine Schöpfung bezieht und mit seinem Volk sympathisiert. Dies zeigt sich am deutlichsten in der Inkarnation Jesu Christi. In Hebräer 4,15-16 werden wir daran erinnert, dass die Menschlichkeit Jesu ihn auch befähigt, mit uns als unserem Hohenpriester zu sympathisieren. Aufgrund seiner Menschlichkeit ist Jesus in der Lage, die Versuchungen und Kämpfe unseres Lebens durch Erfahrung zu erkennen, und kann daher mit uns mitfühlen und uns helfen, wenn wir in Versuchung geraten (Hebräer 2,18). Jesus ist nun in die Gegenwart Gottes eingetreten, und durch seine Gegenwart dort bittet er in unserem Namen (Hebräer 9,24-28).
+
+\hypertarget{persuxf6nliche-anwendung}{%
+\section{Persönliche Anwendung}\label{persuxf6nliche-anwendung}}
+
+Nehmen Sie sich Zeit, über die Auswirkungen von Hebräer 4,14-5,10 auf Ihr eigenes Leben nachzudenken. Beachten Sie die persönlichen Implikationen für Ihren Weg mit dem Herrn im Licht der (1) Einblicke in das Evangelium, (2) biblische Zusammenhänge, (3) theologischen Vertiefungen und (4) dieses Abschnitts als Ganzes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einblicke in das Evangelium
+\item
+  Biblische Zusammenhänge
+\item
+  Theologische Vertiefungen
+\item
+  Hebräer 4,14-5,10
+\end{enumerate}
+
+\hypertarget{wenn-sie-diese-einheit-abschliessen-.-.-.}{%
+\section{Wenn Sie diese Einheit abschliessen . . .}\label{wenn-sie-diese-einheit-abschliessen-.-.-.}}
+
+Nehmen Sie sich jetzt einen Moment Zeit, um um den Segen und die Hilfe des Herrn zu bitten, während Sie das Studium des Hebräerbriefes fortsetzen. Und nehmen Sie sich auch einen Moment Zeit, auf diese Studieneinheit zurückzublicken, über einige Dinge nachzudenken, die der Herr Sie vielleicht lehrt, und Dinge zu notieren, die Sie in Zukunft nachschauen sollten.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-5-jesus-is-the-superior-high-priest-part-1-heb-414-510}{source}
+
+\hypertarget{woche06}{%
+\chapter{Woche 6: Eine Warnung vor dem Glaubensabfall}\label{woche06}}
+
+\begin{rmdbible}
+\textbf{Lese Hebräer 5,11-6,20}
+\end{rmdbible}
+
+\hypertarget{bedeutung-des-abschnittes}{%
+\section{Bedeutung des Abschnittes}\label{bedeutung-des-abschnittes}}
+
+Der Autor unterbricht die Darlegung der Rolle Jesu als Hoherpriester (Hebräer 4,14-5,10; 7,1-8,13) und fordert die Leser plötzlich auf, über die Grundlagen des Glaubens hinaus zur geistlichen Reife zu gelangen (Hebräer 5,11-6,3). Abschliessend ermahnt er sie und zeigt Vertrauen in ihre Fähigkeit zur Ausdauer, indem er Abraham als Beispiel für ``treuen Glauben'' anführt (Hebräer 6,9-20). Die dritte von fünf warnenden Passagen erscheint in Hebräer 6,4-8 und warnt die Leser vor der Gefahr des Abfalls.
+
+\hypertarget{das-gesamtbild}{%
+\section{Das Gesamtbild}\label{das-gesamtbild}}
+
+Hebräer 5,11-6,20 verherrlicht Gott, indem er auf Jesus Christus als den Vorläufer, Anker und Hohenpriester unseres Glaubens hinweist.
+
+\hypertarget{reflexion-und-diskussion}{%
+\section{Reflexion und Diskussion}\label{reflexion-und-diskussion}}
+
+Lesen Sie den Studienabschnitt, Hebräer 4,14-5,10, durch. Nachdem Sie den Abschnitt gelesen haben, lesen Sie den Abschnitt wieder und halten Sie Ihre eigenen Antworten auf die folgenden Fragen fest.
+
+\hypertarget{warnung-drei-gegen-den-glaubensabfall-hebruxe4er-511-612}{%
+\subsection{1. Warnung Drei: Gegen den Glaubensabfall (Hebräer 5,11-6,12)}\label{warnung-drei-gegen-den-glaubensabfall-hebruxe4er-511-612}}
+
+In Hebräer 5,11-12 schilt der Autor die Leser für ihre Unreife im Glauben, denn, so sagt er, sie seien ``schwerhörig'' geworden (Hebräer 5,11) und hätten kein solides Verständnis der grundlegenden Wahrheiten Gottes (Hebräer 5,12). Was sind einige mögliche Gründe für ihre geistige Faulheit und ihre mangelnde Bereitschaft, die tieferen Implikationen des Evangeliums in ihrem Leben herauszuarbeiten?
+
+An diesem Punkt ihres Glaubens sollte die ursprüngliche Zuhörerschaft reif genug sein, um andere in ``den Grundprinzipien der Orakel Gottes'' zu unterweisen, die er auch als ``Wort der Gerechtigkeit'' bezeichnet (Hebräer 5,12-13). Worauf weist der Autor mit ``Grundprinzipien'' und grundlegenden ``Orakeln'' Gottes hin (siehe Hebräer 6,1-2; Apostelgeschichte 7,38; Römer 3,2)?
+
+Im Vergleich zu denen, die im Glauben noch Kinder sind, wird der reife Gläubige als gut gelernt und gut praktiziert im Glauben charakterisiert (Hebräer 5,14). Warum sind sowohl Lehre als auch Praxis für die Reifung eines Gläubigen wichtig?
+
+Der Autor weist darauf hin, dass er sich dafür einsetzt, die Leser von der Unreife zur Glaubensreife zu führen (Hebräer 6:3). In Hebräer 6,1-2 sehen wir drei Paare von Grundprinzipien:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Glaube und Busse: Die Umkehr von der Sünde und die Umkehr vom Vertrauen auf die eigenen Werke zur Ruhe auf dem vollendeten Werk Christi sind die Kennzeichen der christlichen Bekehrung (Hebräer 6,12; 9,14; 10,22.38-39; 12,2; 13,7).
+\item
+  Waschen und Handauflegen: Diese charakteristischen Initiationsriten zeigen an, dass man ein aktiver Teil der Kirche wird (Apostelgeschichte 6,6; 8,14-17; 9,12-19; 19,5-6).
+\item
+  Auferstehung und ewiges Gericht: Christen haben eine Zukunftshoffnung in der Auferstehung. Sie sind in Christus sicher vor dem ewigen Gericht, das auf Nichtchristen wartet (Hebräer 9,27; 10,27; 11,19.35).
+\end{enumerate}
+
+Warum sind diese Prinzipien wichtig, um jemandem auf dem Weg zur Glaubensreife zu helfen?
+
+In Hebräer 6,4-7 stellt der Verfasser fest, dass einige der ursprünglichen Zuhörer an der christlichen Kirche teilgenommen und an ihren Segnungen teilgenommen haben, aber entweder Gefahr laufen, zu fallen, oder bereits vom Glauben abgefallen sind (es ist nicht klar, was er meint). Darüber hinaus sagt er, dass es unmöglich ist, solche Menschen wieder zur Umkehr zu bringen, weil sie Christus absichtlich ablehnen. Beschreiben Sie, was der Autor meint, wenn er diejenigen, die ``abgefallen'' sind, beschuldigt, Christus zu verachten und ihn in den Augen anderer verächtlich zu machen (Hebräer 6,6-7).
+
+Ist es möglich, durch Gottes Wort über die Erlösung erleuchtet zu werden, den Anschein zu erwecken, dass man geistgewirkte Reue über die Sünde zeigt und sogar Zeichen der Bekehrung zeigt, und trotzdem im Glauben nicht standhaft bleibt (Hebräer 6,4-6)? Warum ist es unmöglich, solche Menschen zur Umkehr zu bewegen (Hebräer 6,6-7)?
+
+Der Autor verwendet die landwirtschaftliche Illustration in Hebräer 6:7, damit die Leser seinem Aufruf zu Ausdauer und Geduld folgen (Hebräer 6:11-12). Wie entfacht der Glaube an die Errettung und ein Leben im Dienst am Nächsten (Hebräer 6,10-11) Ausdauer und Hoffnung auf die Verheissungen Gottes? Was sind die besseren Dinge, die die Erlösung begleiten (Hebräer 6,9)?
+
+\hypertarget{die-gewissheit-von-gottes-verheissung-hebruxe4er-613-20}{%
+\subsection{2. Die Gewissheit von Gottes Verheissung (Hebräer 6,13-20)}\label{die-gewissheit-von-gottes-verheissung-hebruxe4er-613-20}}
+
+In Hebräer 6,13-15 gibt der Schriftsteller Abraham als Beispiel für einen, der durch Geduld und Glauben die Verheissungen Gottes erbte (1. Mose 22,16-17). Auf welche Weise ermutigt dieser Abschnitt die Gläubigen, Abrahams Geduld nachzuahmen, wenn es darum geht, die Verheissung Gottes zu erben?
+
+In der Antike erforderten Eide einen Appell an eine höhere Autorität. In diesem Abschnitt heisst es, dass Gott seine Verheissung mit einem Eid geschworen hat, um seine Vertrauenswürdigkeit zu bestätigen (Hebräer 6,16-18). Auf welche Weise erzeugt dies beim Leser Hoffnung und Vertrauen, dass er an Gottes Wort festhält?
+
+Während der Autor die Leser vor einem Abfall vom Glauben warnt, verankert er auch ihre Heilsgewissheit in Jesus Christus (Hebräer 6,19-20). Welche Bedeutung haben die alttestamentlichen Hinweise in diesem Abschnitt für die Festigung Jesu als Manifestation der Hoffnung für das Volk Gottes (Matthäus 27,51; Hebräer 9,3; 10,20)?
+
+\begin{rmddefinition}
+\textbf{Busse -- Definition}
+
+Ein völliger Sinneswandel in Bezug auf die allgemeine Einstellung zu
+Gott und/oder die eigenen Handlungen. Wahre Regeneration und Bekehrung
+geht immer mit Busse einher.
+\end{rmddefinition}
+
+\begin{rmddefinition}
+\textbf{Eid -- Definition}
+
+Das Volk Gottes wurde im Alten Testament davor gewarnt, Versprechen
+unüberlegt oder falsch zu schwören (3. Mose 5,4; 19,11-12). Manchmal
+wurden Eide in Gottes Namen geschworen, als ob sie eine Garantie dafür
+sein sollten, aber Jesus sagte seinen Jüngern, überhaupt keine Eide zu
+schwören. Vielmehr sollten sie ihre einfache Aussage ``ja'' ja und ihr
+``nein'' nein bedeuten lassen (Matthäus 5,33-37). Gottes eigener Eid ist
+jedoch eine endgültige und unanfechtbare Garantie (Hebräer 6,13-20).
+\end{rmddefinition}
+
+Lesen Sie die folgenden drei Abschnitte zu den Themen ``Einblicke in das Evangelium'', ``biblische Zusammenhänge'' und ``theologische Vertiefungen''. Nehmen Sie sich dann Zeit, über die persönlichen Auswirkungen nachzudenken, die diese Abschnitte auf Ihren Weg mit dem Herrn haben können.
+
+\hypertarget{einblicke-in-das-evangelium}{%
+\section{Einblicke in das Evangelium}\label{einblicke-in-das-evangelium}}
+
+\textbf{IN CHRISTUS ALLEIN.} Es ist unmöglich, jemanden zur Busse zu führen, wenn er oder sie weiterhin das Evangelium ablehnt. Diejenigen, die Christus ablehnen, haben sich von der einzigen Grundlage abgewandt, auf der die Hoffnung auf Erlösung ausgedehnt werden kann (Matthäus 12,31-32; Hebräer 6,4). Diejenigen, die auf diese Weise apostasisch werden, verachten Jesus, und indem sie ihn ablehnen, versetzen sie sich in die Lage derer, die ihn gekreuzigt haben. Mit anderen Worten: Abtrünnige lassen die Schande des Kreuzes nachwirken (Hebräer 6,6). Während wir alle wegen unserer Sündhaftigkeit vor Gericht und Verurteilung stehen, steht uns durch die Gnade Gottes die Erlösung in Christus - und nur in ihm - zur Verfügung.
+
+\textbf{ERLÖSUNGS-EID GOTTES.} In der Antike bestand der Hauptzweck eines Eides darin, das Gesagte zu bestätigen und damit allen Streitigkeiten ein Ende zu setzen (Hebräer 6,16-18); diejenigen, die Eide ablegten, waren dem Gericht ausgesetzt, wenn sie sie brachen (5. Mose 23,21-23). Gott schwor Abraham von sich aus einen Eid bezüglich der Erben seiner Verheissung (Hebräer 6,13; 1. Mose 15). Daher ist die Verheissung der Errettung durch das Hohepriestertum Jesu überaus vertrauenswürdig (Hebräer 6,19-20). Gottes Heilsplan ist unveränderlich. Dementsprechend haben Gläubige den stärksten Grund, an Gottes Wort der Errettung festzuhalten.
+
+\hypertarget{biblische-zusammenhuxe4nge}{%
+\section{Biblische Zusammenhänge}\label{biblische-zusammenhuxe4nge}}
+
+\textbf{ABRAHAMS VERSPRECHEN.} Gott versprach Abraham zahllose Nachkommen (Hebräer 2,16; 1. Mose 12,1-3; 17,4-21; 18,17-19). Erst ein Vierteljahrhundert später wurde Isaak geboren (1. Mose 21,1-7). Jede Hoffnung auf Erfüllung der Verheissung, die Gott Abraham in Bezug auf seine Nachkommen gegeben hatte, hing an Isaak, und es war Isaak, dem Abraham befohlen wurde, ihn als Opfer zu opfern - obwohl ihm schliesslich ein Widder an seiner Stelle zur Verfügung gestellt wurde. Die volle Verwirklichung der Verheissung fand sich in Jesus, dem Nachkommen, der als Opfer dargebracht werden sollte, um die Errettung für Abrahams Nachkommen zu sichern und so alle Nationen der Erde zu segnen (1. Mose 22,16-18).
+
+\textbf{WEGFALLEN.} Die Beschreibung des Abfallens in Hebräer 6,4-6 erinnert an den Kontext der Reise Israels durch die Wüste und des Mangels an Ausdauer. Israel erfuhr die göttliche Gabe der Versorgung Gottes durch Manna in der Wüste (1. Mose 16,4); dennoch gelang es ihm wegen seines Unglaubens nicht, das verheissene Land zu betreten. In ähnlicher Weise haben viele die Segnungen des neuen Bundes erfahren, doch geistlich gesehen ``kehren sie nach Ägypten zurück'' und büssen die ewige Ruhe ein. Seien Sie gewarnt: Diejenigen, die schliesslich abfallen, mögen viele äussere Zeichen des Glaubens geben, bevor sie Christus verlassen (Hebräer 6,7-8). Von Gott ``abzufallen'' führt zu Tod und ewigem Gericht (Hebräer 3,12; 12,15).
+
+\hypertarget{theologische-sondierungen}{%
+\section{Theologische Sondierungen}\label{theologische-sondierungen}}
+
+\textbf{SUFFIZIENZ DER SCHRIFT.} Die Bibel ist ausreichend und nützlich für die Lehre, die für ein gottgefälliges Leben erforderlich ist (Psalm 19,7-9; 2. Timotheus 3,16-17). Die Leser, an die sich Hebräer 5,11-14 wendet, sind wegen ihrer Faulheit und mangelnden Bereitschaft, die tieferen Implikationen von Gottes Wort in ihrem Leben herauszuarbeiten, in der Lehre noch Kinder. Das Ziel des Autors ist es jedoch, dass die Leser durch die Entwicklung der Lehre und durch Beispiele aus der Schrift zur Reife gelangen (Hebräer 6,1-12).
+
+\textbf{UNVERZEIHLICHE SÜNDE.} In den Evangelienberichten spricht Jesus von der unverzeihlichen Sünde, nämlich der Gotteslästerung gegen den Heiligen Geist (Matthäus 12,31-32; Markus 3,29; Lukas 12,10). In Hebräer 6,4-6 spricht der Autor von denen, die die Überzeugung von der Wahrheit erfahren und die Güte Gottes gekostet haben und sich dennoch willentlich von Jesus abwenden. Während sie von der Wahrheit des Evangeliums überzeugt sind, widersetzen sie sich ständig und vorsätzlich dem Wirken des Heiligen Geistes, der dieses Evangelium bezeugt (vgl. Hebräer 10,26-27).
+
+\begin{rmddefinition}
+\textbf{Der Heilige Geist -- Definition}
+
+Eine der Personen der Dreieinigkeit, ganz Gott. Die Bibel erwähnt
+mehrere Rollen des Heiligen Geistes, darunter die, Menschen von der
+Sünde zu überführen, sie zur Umkehr zu bringen, ihnen einzuwohnen und
+sie zu befähigen, in Rechtschaffenheit und Treue zu leben, sie in Zeiten
+der Prüfung zu unterstützen und ihnen das Verständnis der Heiligen
+Schrift zu ermöglichen. Der Heilige Geist inspirierte die Schreiber der
+Heiligen Schrift und führte sie dazu, die Worte Gottes selbst
+aufzuzeichnen. Der Heilige Geist war im Leben und Wirken Jesu auf Erden
+besonders aktiv (z.B. Lukas 3,22).
+\end{rmddefinition}
+
+\hypertarget{persuxf6nliche-anwendung}{%
+\section{Persönliche Anwendung}\label{persuxf6nliche-anwendung}}
+
+Nehmen Sie sich Zeit, über die Auswirkungen von Hebräer 5,11-6,20 auf Ihr eigenes Leben nachzudenken. Beachten Sie die persönlichen Implikationen für Ihren Weg mit dem Herrn im Licht der (1) Einblicke in das Evangelium, (2) biblische Zusammenhänge, (3) theologischen Vertiefungen und (4) dieses Abschnitts als Ganzes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einblicke in das Evangelium
+\item
+  Biblische Zusammenhänge
+\item
+  Theologische Vertiefungen
+\item
+  Hebräer 5,11-6,20
+\end{enumerate}
+
+\hypertarget{wenn-sie-diese-einheit-abschliessen-.-.-.}{%
+\section{Wenn Sie diese Einheit abschliessen . . .}\label{wenn-sie-diese-einheit-abschliessen-.-.-.}}
+
+Nehmen Sie sich jetzt einen Moment Zeit, um um den Segen und die Hilfe des Herrn zu bitten, während Sie das Studium des Hebräerbriefes fortsetzen. Und nehmen Sie sich auch einen Moment Zeit, auf diese Studieneinheit zurückzublicken, über einige Dinge nachzudenken, die der Herr Sie vielleicht lehrt, und Dinge zu notieren, die Sie in Zukunft nachschauen sollten.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-6-a-warning-against-apostasy-heb-511-620}{source}
+
+\hypertarget{woche07}{%
+\chapter{Woche 7: Jesus ist der oberste Hohepriester, Teil 2}\label{woche07}}
+
+\begin{rmdbible}
+\textbf{Lese Hebräer 7,1-8,13}
+\end{rmdbible}
+
+\hypertarget{bedeutung-des-abschnittes}{%
+\section{Bedeutung des Abschnittes}\label{bedeutung-des-abschnittes}}
+
+Eines der zentralen theologischen Argumente des Hebräerbriefes ist, dass Jesus Christus der höhere Hohepriester in der Ordnung Melchisedeks ist (Hebrärer 5,1-10). In Hebräer 7.1-28 greift der Autor dieses Argument wieder auf und beschreibt das Wesen des Priestertums Jesu, um festzustellen, dass es dem levitischen Priestertum überlegen ist. Jesus dient in der grösseren himmlischen Stiftshütte und hat im neuen Bund bessere Verheissungen erlassen (Hebräer 8,1-13).
+
+\begin{rmddefinition}
+\textbf{Bund -- Definition}
+
+Eine verbindliche Vereinbarung zwischen zwei Parteien, die in der Regel
+eine formelle Erklärung ihrer Beziehung, eine Liste von Bestimmungen und
+Verpflichtungen für beide Parteien, eine Liste von Zeugen für die
+Vereinbarung und eine Liste von Flüchen für Untreue und Segen für die
+Treue zur Vereinbarung umfasst. Das Alte Testament wird richtiger als
+der alte Bund verstanden, d.h. die Vereinbarung, die zwischen Gott und
+seinem Volk vor dem Kommen Jesu Christi und der Errichtung des neuen
+Bundes (Neues Testament) getroffen wurde.
+\end{rmddefinition}
+
+\hypertarget{das-gesamtbild}{%
+\section{Das Gesamtbild}\label{das-gesamtbild}}
+
+In Hebräer 7,1-8,13 wird Jesus als der ewige Sohn und Hohepriester in der Ordnung Melchisedeks dargestellt, der im Himmel dient und den Gläubigen erlaubt, sich Gott unter dem neuen Bund zu nähern.
+
+\hypertarget{reflexion-und-diskussion}{%
+\section{Reflexion und Diskussion}\label{reflexion-und-diskussion}}
+
+Lesen Sie den Studienabschnitt, Hebräer 7.1-8.13, durch. Nachdem Sie den Abschnitt gelesen haben, lesen Sie den Abschnitt wieder und halten Sie Ihre eigenen Antworten auf die folgenden Fragen fest.
+
+\hypertarget{die-priesterordnung-melchisedeks-hebr.-71-10}{%
+\subsection{1. Die Priesterordnung Melchisedeks (Hebr. 7,1-10)}\label{die-priesterordnung-melchisedeks-hebr.-71-10}}
+
+In Anlehnung an 1. Mose 14,18-20 beschreibt der Autor die Einzigartigkeit des Königs von Salem und des Priesters Melchisedek (Hebräer 7,1-3; siehe auch Psalm 110,4). Ausgehend von Melchisedeks Namen und Titel und dem Weglassen jeglicher genealogischer Qualifikation für das Amt des Hohenpriesters im 1. Mose (vgl. 4. Mose 3,10; 15-16), in welcher Weise weist Melchisedek auf das Leben und den Dienst Jesu Christi hin?
+
+Dem Autor des Hebräerbriefes zufolge wurde Melchisedek in der Gestalt des Sohnes Gottes geschaffen (d.h. biblisch dargestellt) und bleibt daher in der Schrift für immer ein Priester des höchsten Gottes (Hebräer 7,3). Wie verwendet der Autor diese Informationen, um den Zweck und die Funktion des priesterlichen Dienstes Jesu zu erklären?
+
+In Hebräer 7,4-10 gab der Verheissungsträger und Patriarch Abraham Melchisedek ein Zehntel seiner Beute (Hebräer 7:2; 1. Mose 14,20; 4. Mose 18,21). Aber als Untergebener erhielt Abraham dann einen Segen aus den Händen seines Vorgesetzten Melchisedek, der zeigte, dass das ewige Melchisedek-Priestertum grösser war als das levitische Priestertum, das von Abraham abstammen würde (Hebräer 7,4-8). In Anlehnung an das Argument aus Hebräer 7,4-10, wie baut der Autor die Argumente für Jesu Überlegenheit als König und Hoherpriester auf?
+
+\hypertarget{jesus-im-vergleich-zu-melchisedek-hebruxe4er-711-28}{%
+\subsection{2. Jesus im Vergleich zu Melchisedek (Hebräer 7,11-28)}\label{jesus-im-vergleich-zu-melchisedek-hebruxe4er-711-28}}
+
+In Hebräer 7,11-14 zeigt der Autor, dass das mosaische Gesetz und das levitische Priestertum (Psalm 110,4) nicht ausreichten, um Menschen zur Vollkommenheit zu führen (Hebräer 7,18-19; 9,9; 10,1). Wie zeigen die Gesetzesänderung und Jesu Rolle als Hoherpriester in der Linie Judas, dass der mosaische Bund nicht mehr in Kraft ist?
+
+In der Auferstehung besiegelt Jesus seine Überwindung des Todes und begründet sein ewiges Priestertum (Hebräer 5,6; 7,23-24). Wegen des ewigen Priestertums Jesu wird das frühere levitische Priestertum aufgehoben (Hebräer 7,18). Welche Hoffnung können Gläubige aus dem vollendeten Werk Jesu in Bezug auf sein himmlisches Priestertum schöpfen (Hebräer 5,19)?
+
+In Hebräer 7,20-28 besiegelt der Autor sein Argument für die Überlegenheit Jesu und teilt es in drei Gedankenabschnitte auf:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Das Priestertum Jesu wird durch den Eid Gottes garantiert und ist sowohl für die Gegenwart als auch für die Zukunft wirksam (Hebräer 7,20-22).
+\item
+  Jesus ist in der Lage, sein Volk vollständig zu retten, und sein Volk ist in der Lage, sich durch ihn Gott zu nähern (Hebräer 7,23-25).
+\item
+  Jesus ist der passende Hohepriester, der sich selbst für uns geopfert hat und für immer vollkommen geworden ist (Hebräer 7,26-28).
+\end{enumerate}
+
+Gehen Sie jeden Gedankenabschnitt durch und vergleichen Sie das Leben unter dem alten Bund und das Leben unter dem neuen Bund, wobei Sie die Auswirkungen auf das Heil und das tägliche Leben herausarbeiten. (Siehe die Tabelle unten).
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Aus der ESV-Studienbibel (Seite 2372)}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.35\columnwidth}\raggedright
+Levitische Hohepriester\strut
+\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\raggedright
+Verse\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\raggedright
+Jesus der Hohepriester\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.35\columnwidth}\raggedright
+Levitische Hohepriester\strut
+\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\raggedright
+Verse\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\raggedright
+Jesus der Hohepriester\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.35\columnwidth}\raggedright
+zahlreiche\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+7,23-24\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\raggedright
+der einzige\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.35\columnwidth}\raggedright
+vorübergehend\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+7,23-24\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\raggedright
+dauerhaft und ewig\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.35\columnwidth}\raggedright
+Sünder, die für ihre
+``eigenen Sünden'' Opfer
+bringen mussten\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+7,26-27\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\raggedright
+heilig, unschuldig; bringt
+Opfer nur für andere\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.35\columnwidth}\raggedright
+mussten täglich Opfer
+bringen\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+7.27\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\raggedright
+ein für allemal geopfert\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.35\columnwidth}\raggedright
+Opfertiere geopfert\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+7,27; 9,11-14
+9,11-14\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\raggedright
+opferte sich selbst\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.35\columnwidth}\raggedright
+betraten die heiligen
+Stätten durch ein von
+Menschenhand geschaffenes
+Zelt und mit dem Blut von
+Ziegen und Kälbern\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+9,11-12\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\raggedright
+betrat den heiligen Ort der
+Gegenwart Gottes durch sein
+eigenes Blut\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{jesus-ein-priester-eines-besseren-bundes-hebr.-81-13}{%
+\subsection{3. Jesus, ein Priester eines besseren Bundes (Hebr. 8,1-13)}\label{jesus-ein-priester-eines-besseren-bundes-hebr.-81-13}}
+
+In Hebräer 8,1-6 wiederholt der Verfasser den Kernpunkt des Briefes bis jetzt, nämlich dass die Gläubigen einen höheren Hohenpriester haben, der sich selbst als Opfer dargebracht hat, zur Rechten Gottes sitzt, im himmlischen Heiligtum dient und so einen besseren Bund vermittelt. Wie wir bereits gesehen haben, ist Jesus sowohl mit dem Himmel als auch mit der Erde eng vertraut (Hebräer 4,14) und hat sein Erlösungswerk vollendet. Wie stärkt diese Wahrheit das Vertrauen eines Christen in das Gebetsleben? Wie stützen diese Wahrheiten den Glauben im Zweifel oder in schwierigen Zeiten?
+
+Der grössere Zweck des mosaischen Bundes bestand nicht darin, Vollkommenheit herbeizuführen (Hebräer 8,7), sondern das Volk über Gottes heiliges Gesetz zu informieren, seine Sünde zu offenbaren und ein Muster von Priestertum und Opfer einzuführen. Warum tadelt Gott dann sein Volk, weil es den ersten Bund nicht halten konnte und deshalb einen zweiten Bund brauchte (Hebräer 8,8-13)?
+
+In Hebräer 8,8-12 zitiert der Autor Jeremia 31,31-34 in seiner Gesamtheit. Was ist nach dieser Stelle des Alten Testaments die bedeutende Rolle des Messias bei der Errichtung des neuen Bundes? Was sind nach Jeremia die Auswirkungen der Werke dieses Messias des neuen Bundes?
+
+\begin{rmddefinition}
+\textbf{Recht -- Definition}
+
+DasGesetz kann sich auf die ersten fünf Bücher der Bibel (den
+Pentateuch) beziehen. Das Gesetz enthält zahlreiche Gebote Gottes an
+sein Volk, darunter die Zehn Gebote und Anweisungen zu Gottesdienst,
+Opferung und Leben in Israel. Im Neuen Testament wird oft ``das Gesetz''
+verwendet, um sich auf den gesamten Korpus der in den Büchern des
+Gesetzes dargelegten Gebote zu beziehen.
+\end{rmddefinition}
+
+\begin{rmddefinition}
+\textbf{Heiligtum/Heiliger Ort -- Definition}
+
+In der Bibel ein Ort, der wegen der Gegenwart Gottes dort als heilig
+beiseite gelegt wurde. Das innere Heiligtum der Stiftshütte (und später
+des Tempels) wurde der heiligste Ort genannt.
+\end{rmddefinition}
+
+Lesen Sie die folgenden drei Abschnitte zu den Themen ``Einblicke in das Evangelium'', ``biblische Zusammenhänge'' und ``theologische Vertiefungen''. Nehmen Sie sich dann Zeit, über die persönlichen Auswirkungen nachzudenken, die diese Abschnitte auf Ihren Weg mit dem Herrn haben können.
+
+\hypertarget{einblicke-in-das-evangelium}{%
+\section{Einblicke in das Evangelium}\label{einblicke-in-das-evangelium}}
+
+\textbf{VERGEBUNG DER SÜNDEN.} Die Gläubigen des Alten Testaments erhielten die Vergebung ihrer Sünden, indem sie sich auf Gott stürzten und durch das Opfersystem um seine Gnade flehten. Es gab tägliche und jährliche Erinnerungen an die Sünde, die in das Heiligtum und das Opfersystem eingebaut waren (Hebräer 7,27; 8,3). Aber im neuen Bund geht Christus ein für allemal mit der Sünde um, und Gott erinnert sich nicht mehr an unsere Sünden (Hebräer 8,12). Die Auslöschung der Sünde ist wesentlich für eine Beziehung zu Gott, denn wenn Gott der Sünde einer Person gedenkt, muss seine Heiligkeit gegen diese Person vorgehen. Wenn die Sünden des Volkes vergeben werden, dann deshalb, weil Gott in seiner Gnade beschlossen hat, sie durch Christus zu vergeben. Unter dem alten Opfersystem gab es Erinnerungen an die Sünde; unter Christus müssen wir uns daran erinnern, dass die Sünde ein für allemal erledigt ist.
+
+\textbf{VERMITTLER DES BUNDES.} Ein Bund ist eine verbindliche Vereinbarung, die eine Grundlage für die Interaktion zwischen seinen Parteien schafft. Jesus wird als der Vermittler dieses besseren neuen Bundes zwischen Mensch und Gott identifiziert (Hebräer 7,20-22). In der biblischen und juristischen Terminologie dient ein Vermittler als Schiedsrichter zwischen den Parteien (siehe Hiob 9,33). Der vermittelnde Dienst der levitischen Priester war nur vorübergehend und gewährte keinen Eintritt in die wirkliche himmlische Gegenwart Gottes. Vielmehr wurde der volle Eintritt in seine ewige Gegenwart erst mit dem Leben und der erlösenden Vollendung Jesu erreicht. Darüber hinaus ist Jesus mehr als ein Vermittler: Er ist auch ein Delegierter, der mit göttlicher Autorität ausgestattet ist, um den Bund zu garantieren. In diesem Sinne handelte Jesus im Interesse beider Parteien, die er vertrat.
+
+\textbf{NEUE HERZEN.} Der neue Bund, der in Hebräer 8,8-12 beschrieben wird, beinhaltete das Schreiben der Gesetze Gottes in die Herzen der Menschen (nicht auf Steintafeln, wie im mosaischen Bund). Auf diese Weise wird die Beziehung zwischen Gott und dem Volk fest verankert, so dass jeder innerhalb des Bundes den Herrn und seinen Willen in und aus seinem Herzen kennt (Hebräer 8,10-11). Als gefallene Menschen kämpfen unsere sündigen Herzen in uns gegen den Gehorsam gegenüber Gottes Gesetz. Um gehorsam zu sein, brauchen die Menschen ein neues Herz. Im neuen Bund werden die Herzen des Volkes Gottes durch das Evangelium verändert und verändern sich durch das Wirken seines Geistes weiter.
+
+\hypertarget{biblische-zusammenhuxe4nge}{%
+\section{Biblische Zusammenhänge}\label{biblische-zusammenhuxe4nge}}
+
+\textbf{KÖNIG DER GERECHTIGKEIT.} Melchisedek ist die erste Person im Alten Testament, die als Priester identifiziert wurde. Melchisedek regierte als König von Salem, das nach der Septuaginta (einer griechischen Übersetzung des Alten Testaments) als Jerusalem identifiziert werden kann. Der Name Melchisedek bedeutet wörtlich ``König der GERECHTIGKEIT''. Im Alten Testament wurden sowohl Rechtschaffenheit als auch Frieden mit messianischen Erwartungen in Verbindung gebracht (Jesaja 9,6-7; Jeremia 23,5; 33,15; Sacharja 9,9-10). Melchisedek stellte sich den Messias vor, der für sein Volk Gerechtigkeit und Frieden Wirklichkeit werden lassen würde. Jesus ist der ewige König der Gerechtigkeit und des Friedens (Römer 5,1; 14:17).
+
+\textbf{HIMMLISCHES HEILIGTUM.} Das Heiligtum (d.h. der Tempel) diente als Wohnort Gottes inmitten seines Volkes auf Erden; es war der Ort, an dem Gott den Menschen buchstäblich begegnete. Aber das alttestamentliche Heiligtumssystem war nichts als eine schattenhafte Kopie der himmlischen Wirklichkeit (Hebräer 8,5). Vom Garten Eden über die Stiftshütte bis zum Tempel wird uns eine Vorahnung des himmlischen Tempels gewährt, in dem Gottes Priester in seiner Gegenwart anbeten und dienen. Jesus ist der ewige Hohepriester, der die volle Vergebung der Sünden gebracht hat und der nun im himmlischen Heiligtum im Namen seines Volkes dient (Hebräer 8,1-3). Eines Tages werden sich Himmel und Erde wieder treffen und ein himmlisches Heiligtum bilden, in dem Gott bei den Menschen wohnt (Offenbarung 21).
+
+\textbf{JEREMIAS HOFFNUNG.} Jeremia 31,31-34, der in Hebräer 8,8-12 zitiert wird, befindet sich in einem Abschnitt von Jeremia, den viele als das ``Buch der Hoffnung'' bezeichnen. Diese Jeremia-Passage bietet den Exil-Israeliten Hoffnung, dass sie eines Tages wieder in ihre Heimat zurückkehren werden. An jenem Tag wird sich ihre Trauer in Freude verwandeln, und anstelle von Trauer wird ihnen ihr Gott Trost und Freude schenken. In Christus findet diese Hoffnung ihre Verwirklichung und schliesslich ihren Höhepunkt (Offenbarung 21,1-5). Wo der alte Bund am Unglauben Israels scheiterte, ist die Wirklichkeit des neuen Bundes unter dem vollkommenen Werk Christi gesichert.
+
+\begin{rmddefinition}
+\textbf{Israel -- Definition}
+
+Ursprünglich ein anderer Name, der Jakob gegeben wurde (1. Mose 32:28).
+Später galt er für die von seinen Nachkommen gebildete Nation, dann für
+die zehn nördlichen Stämme dieser Nation, die den gesalbten König
+ablehnten und ihre eigene Nation bildeten. Im Neuen Testament wird der
+Name auf die Gemeinde als die geistlichen Nachkommen Abrahams angewandt
+(Galater 6,16).
+\end{rmddefinition}
+
+\hypertarget{theologische-sondierungen}{%
+\section{Theologische Sondierungen}\label{theologische-sondierungen}}
+
+\textbf{DIE HEILIGKEIT GOTTES.} Gott ist absolut heilig, ohne Sünde und einzigartig über der ganzen Schöpfung (Jesaja 5,16; 6,1-8; Apostelgeschichte 3,14; Hebräer 7,26; Offenbarung 4,8). Wegen seiner Heiligkeit sollte man Gott fürchten und ihm gehorchen. Um sich Gott zu nähern, muss man heilig, unschuldig und unbefleckt von der Sünde sein, denn Gott ist heilig und von den Sündern getrennt. Gott sei Dank ist Jesus der Heilige, Reine und Tadellose, der die Sünde verdecken und die Gläubigen mit der ihm zugeschriebenen Gerechtigkeit in die Gegenwart Gottes bringen kann. Aufgrund des vermittelnden Wirkens Christi sind wir in der Lage, uns dem Heiligen mit Zuversicht zu nähern (Hebräer 7,19.25).
+
+\textbf{ERKENNBARKEIT GOTTES.} Die Erkenntnis Gottes in Christus steht im Mittelpunkt des neuen Bundes (Hebräer 8,10-12). Intime Gotteserkenntnis ist etwas, das über das hinausgeht, was der alte Bund angeboten hat. Es gab einen Sinn, in dem das Volk Israel seinen Gott kannte, weil er sich ihm offenbart hatte, was im Gegensatz zu den anderen Nationen stand, die ihn nicht kannten. In der Gemeinschaft des neuen Bundes kann jedoch jeder Gott direkt kennen (Hebräer 8,11). Die Bibel lehrt, dass wir Gott zwar wahrhaftig und persönlich kennen können, dass wir ihn aber niemals erschöpfend verstehen werden (Psalm 145,3; Hiob 26,14; Jesaja 55,8-9; Römer 11,33-34). Aber Gott wird am vollständigsten in Christus offenbart (2. Korinther 4,4; Kolosser 1,15). Die Erkenntnis Gottes in Christus ist die Grundlage für die Erlangung des ewigen Lebens (Johannes 17,3).
+
+\textbf{NEUER BUND.} Das Bild eines Bundes ist das einer Vereinbarung zwischen Gott und seinem Volk, in der beide Parteien ihren Verheissungen treu bleiben sollen. Wegen der Sünde gelang es den Israeliten nicht, die im mosaischen Bund angebotenen Segnungen zu erlangen (5. Mose 11,26-32). Daher war es notwendig, dass Gott einen neuen Bund der Gnade schuf, durch den sein Volk gerettet werden konnte. Mose 3 ist die Geschichte der Heiligen Schrift eine Geschichte, in der Gott seinen Erlösungsplan ausarbeitete. In Christus wird der neue Bund gegründet, und der Segen Gottes wird gnädig über sein erlöstes Volk ausgegossen (Hebräer 8,6-13; 13,20; Jeremia 31,31-34; Hesekiel 34,25-32).
+
+\hypertarget{persuxf6nliche-anwendung}{%
+\section{Persönliche Anwendung}\label{persuxf6nliche-anwendung}}
+
+Nehmen Sie sich Zeit, über die Auswirkungen von Hebräer 5,11-6,20 auf Ihr eigenes Leben nachzudenken. Beachten Sie die persönlichen Implikationen für Ihren Weg mit dem Herrn im Licht der (1) Einblicke in das Evangelium, (2) biblische Zusammenhänge, (3) theologischen Vertiefungen und (4) dieses Abschnitts als Ganzes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einblicke in das Evangelium
+\item
+  Biblische Zusammenhänge
+\item
+  Theologische Vertiefungen
+\item
+  Hebräer 7,1-8,13
+\end{enumerate}
+
+\hypertarget{wenn-sie-diese-einheit-abschliessen-.-.-.}{%
+\section{Wenn Sie diese Einheit abschliessen . . .}\label{wenn-sie-diese-einheit-abschliessen-.-.-.}}
+
+Nehmen Sie sich jetzt einen Moment Zeit, um um den Segen und die Hilfe des Herrn zu bitten, während Sie das Studium des Hebräerbriefes fortsetzen. Und nehmen Sie sich auch einen Moment Zeit, auf diese Studieneinheit zurückzublicken, über einige Dinge nachzudenken, die der Herr Sie vielleicht lehrt, und Dinge zu notieren, die Sie in Zukunft nachschauen sollten.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-7-jesus-is-the-superior-high-priest-part-2-heb-71-813}{source}
+
+  \bibliography{book.bib,packages.bib}
+
+\printindex
+
+\end{document}
