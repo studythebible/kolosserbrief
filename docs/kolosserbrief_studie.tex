@@ -1,0 +1,386 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  12pt,
+]{krantz}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Die Bibel kennen: Kolosserbrief},
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{layouts}
+\usepackage[bf,singlelinecheck=off]{caption}
+
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\usepackage{float}
+\floatplacement{figure}{H}
+\usepackage{makeidx}
+\makeindex
+
+% The following commands make floating environments less likely 
+% to float by allowing them to occupy larger fractions of pages 
+% without floating.
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+%Since krantz.cls provided an environment VF for quotes, we redefine the standard quote environment to VF. You can see its style in Section 2.1.
+
+\renewenvironment{quote}{\begin{VF}}{\end{VF}}
+
+
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
+
+\newenvironment{rmdblock}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{img/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{kframe}
+  \item
+  }
+  {
+  \end{kframe}
+  \end{itemize}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+\newenvironment{rmdquestion}
+  {\begin{rmdblock}{question}}
+  {\end{rmdblock}}
+\newenvironment{rmdyou}
+  {\begin{rmdblock}{you}}
+  {\end{rmdblock}}
+\newenvironment{rmdobjective}
+  {\begin{rmdblock}{objective}}
+  {\end{rmdblock}}
+\newenvironment{rmdinfo}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdbible}
+  {\begin{rmdblock}{bible}}
+  {\end{rmdblock}}
+\newenvironment{rmdquote}
+  {\begin{rmdblock}{quote}}
+  {\end{rmdblock}}
+\newenvironment{rmddefinition}
+  {\begin{rmdblock}{definition}}
+  {\end{rmdblock}}
+
+%Then we redefine hyperlinks to be footnotes, because when the book is printed on paper, readers are not able to click on links in text. Footnotes will tell them what the actual links are.
+
+\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+
+
+
+\frontmatter
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Die Bibel kennen: Kolosserbrief}
+\author{}
+\date{\vspace{-2.5em}2020-09-01}
+
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}
+\mainmatter
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{studienplan}{%
+\chapter{Studienplan}\label{studienplan}}
+
+Eine Studienreihe über den kolosserbrief
+
+\begin{rmdinfo}
+\textbf{Soli Deo Gloria}
+\end{rmdinfo}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke.
+
+\hypertarget{woche01}{%
+\chapter{Woche 1: Übersicht}\label{woche01}}
+
+\hypertarget{einfuxfchrung}{%
+\section{Einführung}\label{einfuxfchrung}}
+
+Das anonyme Buch der Hebräer ist ein einzigartiger Beitrag zum Kanon der Schrift. Wie viele andere neutestamentliche Briefe beginnt das Hebräerbrief ohne Einleitung, schliesst aber mit Segen und Grüssen ({Hebräer 13,23-24}). Der Autor beleuchtet die Form des Hebräerbriefes, indem er seine Schrift als ``Wort der Ermahnung'' bezeichnet ({Hebräer 13,22}). Das Hebräische ist mit pastoraler Stimme geschrieben, mit vielen praktischen Ermahnungen, was viele dazu veranlasst, es als eine einzige Predigt oder einen einzigen Predigtvortrag zu betrachten, der sich an Bekehrte aus dem Judentum richtet, die unter dem Druck stehen, zum jüdischen Glauben zurückzukehren.
+
+Das Hebräerbrief gilt auch als eines der am schönsten geschriebenen und stilistisch ausgefeiltesten Bücher des Neuen Testaments, ein literarisches Meisterwerk. Der Autor ist ein Meister der rhetorischen Debatte und der Überzeugungsarbeit. Er beweist auch seine tiefgreifenden theologischen Fähigkeiten mit seinem Gebrauch von Bildern, Metaphern, Anspielungen, alttestamentlichen Analogien und Typologie. In seiner gesamten Darstellung und Ermahnung webt der Autor einen wunderschönen Teppich biblischer Theologie mit dem Ziel, die Überlegenheit Jesu Christi zu verherrlichen.
+
+Das zentrale Motiv der Hebräer ist ``Jesus Christus ist besser'' (die Worte ``besser'', ``mehr'' und ``grösser'' erscheinen zusammen 25 Mal). In vielerlei Hinsicht ist die Herrlichkeit Gottes, wie sie sich in Jesus Christus offenbart, das Gravitationszentrum der Hebräer. Hebräer 1-12 umreisst ein starkes theologisches Argument für die Überlegenheit Christi über alles Geschaffene und alle Gegenstücke im Alten Testament, mit besonderem Schwerpunkt auf der Ermutigung des Lesers, in dem Glauben, der Christus im Zentrum hat, auszuharren. Durch ermutigende Worte, entschiedene Warnungen und kontrastierende Beispiele ruft der Autor den Leser oft dazu auf, auf Christus im Gottesdienst zu antworten.
+
+\hypertarget{einordnung-in-die-gruxf6ssere-geschichte}{%
+\section{Einordnung in die grössere Geschichte}\label{einordnung-in-die-gruxf6ssere-geschichte}}
+
+Der Hebräerbrief enthält 35 direkte Zitate aus dem Alten Testament und noch dazu viele Anspielungen und Verweisen auf das alten Testament. Mit dem alttestamentlichen Hintergrund im Sinn, argumentiert der Autor, dass Gottes Herrlichkeit und Erlösungsplan schliesslich und am deutlichsten in Jesus Christus offenbart werden. Die Überlegenheit Jesu zeigt sich darin, dass er grösser ist als jeder Engel, Priester oder jede Institution des Alten Bundes. Christus ist das vollständige Sühneopfer und der letzte Priester. In ihm sehen wir die Erfüllung aller Hoffnungen und Verheissungen des Alten Testaments, die das lang ersehnte neue Zeitalter des Bundes einleiten.
+
+\hypertarget{schluxfcsselvers}{%
+\section{Schlüsselvers}\label{schluxfcsselvers}}
+
+\begin{rmdquote}
+{[}Jesus{]} ist die Ausstrahlung seiner Herrlichkeit und der Ausdruck
+seines Wesens und trägt alle Dinge durch das Wort seiner Kraft; er hat
+sich, nachdem er die Reinigung von unseren Sünden durch sich selbst
+vollbracht hat, zur Rechten der Majestät in der Höhe gesetzt.
+
+-- Hebräer 1,3
+\end{rmdquote}
+
+\hypertarget{datum-und-historischer-hintergrund}{%
+\section{Datum und historischer Hintergrund}\label{datum-und-historischer-hintergrund}}
+
+Das Hebräische wurde im ersten Jahrhundert, wahrscheinlich vor 70 n.~Chr., geschrieben. Der Autor des Hebräischen nennt sich nicht selbst. Es gab viele Vermutungen über seine Identität; wie der frühchristliche Theologe Origenes (ca. 245 n.~Chr.) sagte, ``nur Gott weiß'', wer er ist. Aber wir können sicher sein, dass der Autor mit seinen Zuhörern vertraut war, denn er sehnte sich danach, mit ihnen wieder vereint zu werden (Hebr 13,19) und kann ihnen Nachrichten über Timotheus, den Stellvertreter des Paulus, geben (Hebr 13,23).
+
+Der traditionelle Titel ``An die Hebräer'' spiegelt die alte Vorstellung wider, dass die ursprüngliche Zuhörerschaft hauptsächlich aus jüdischen Christen bestand. Man kann mit Sicherheit davon ausgehen, dass die Zuhörer mit den vielen Zitaten und Anspielungen auf das Alte Testament vertraut und gut verstanden waren. Sicherlich wandte sich der Autor mit diesem Brief an bekennende Christen; mehrmals drängt der Autor sie, ihr Bekenntnis und ihren Glauben aufrechtzuerhalten (Hebr. 3,6.14; Hebr 4,14; Hebr 10,23).
+
+\hypertarget{uxfcbersicht}{%
+\section{Übersicht}\label{uxfcbersicht}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einführung: Die Vormachtstellung Jesu Christi (Hebr. 1,1-4)
+\item
+  Jesus ist den Engelswesen überlegen (Hebr. 1,5-2,18)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Jesu Status als ewiger Sohn und König (Hebr. 1,5-14)
+  \item
+    Warnung eins: vor der Vernachlässigung der Errettung (Hebr. 2,1-4)
+  \item
+    Jesus als der Gründer der Errettung (Hebr. 2,5-18)
+  \end{enumerate}
+\item
+  Jesus ist Mose überlegen (Hebr. 3,1-4,13)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Jesus ist größer als Mose (Hebr. 3,1-6)
+  \item
+    Zweite Warnung: das Scheitern der Exodus-Generation (Hebr. 3,7-19)
+  \item
+    In Gottes Ruhe eintreten (Hebr. 4,1-13)
+  \end{enumerate}
+\item
+  Jesus ist der oberste Hohepriester, Teil 1 (Hebr. 4,14-5,10)
+\item
+  Eine Warnung vor dem Glaubensabfall (Hebr. 5,11-6,20)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Warnung drei: vor dem Glaubensabfall (Hebr. 5,11-6,12)
+  \item
+    Die Gewissheit von Gottes Verheißung (Hebr. 6,13-6,20)
+  \end{enumerate}
+\item
+  Jesus ist der oberste Hohepriester, Teil 2 (Hebr. 7,1-8,13)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Die Priesterordnung Melchisedeks (Hebr. 7,1-10)
+  \item
+    Jesus im Vergleich zu Melchisedek (Hebr. 7,11-28)
+  \item
+    Jesus, ein Priester eines besseren Bundes (Hebr 8,1-13)
+  \end{enumerate}
+\item
+  Jesus ist das überlegene Opfer (Hebr 9,1-10,18)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Das irdische Heiligtum (Hebr. 9,1-10)
+  \item
+    Erlösung durch das Blut Christi (Hebr. 9,11-28)
+  \item
+    Das Opfer Christi ein für allemal (Hebr 10,1-18)
+  \end{enumerate}
+\item
+  Der Ruf zum Glauben (Hebr. 10,19-11,40)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Ermahnung zur Annäherung (Hebr. 10,19-25)
+  \item
+    Warnung vier: vor dem Zurückschrecken (Hebr. 10,26-39)
+  \item
+    Durch den Glauben (Hebr. 11,1-40)
+  \end{enumerate}
+\item
+  Der Ruf zur Ausdauer (Hebr. 12,1-29)
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    Jesus, der Gründer und Vervollkommner unseres Glaubens (Hebr 12,1-2)
+  \item
+    Werde nicht müde (Hebr. 12,3-17)
+  \item
+    Ein Königreich, das nicht erschüttert werden kann (Hebr 12,18-24)
+  \item
+    Warnung fünf: vor der Ablehnung des Sprechers (Hebr. 12,25-29)
+  \end{enumerate}
+\item
+  Letzte Ermahnungen (Hebr. 13,1-25)
+  i. Gott wohlgefällige Opfer (Hebr. 13,1-19)
+  ii. Der Segen (Hebr. 13,20-21)
+  iii. Abschliessende Grüsse (Hebr. 13,22-25)
+\end{enumerate}
+
+\hypertarget{wenn-sie-anfangen-.-.-.}{%
+\section{Wenn Sie anfangen . . .}\label{wenn-sie-anfangen-.-.-.}}
+
+Wie verstehen Sie heute, wie die Hebräer uns helfen, die gesamte Geschichte der Bibel zu verstehen? Haben Sie eine Vorstellung davon, wie sich Aspekte des Alten Testaments im Hebräischen erfüllen?
+
+Was ist Ihr gegenwärtiges Verständnis dessen, was die Hebräer zur christlichen Theologie beitragen? Wie klärt dieses Buch unser Verständnis der wichtigsten Lehren des christlichen Glaubens?
+
+Gibt es in der hebräischen Sprache eine alttestamentliche Bildsprache, die Sie besonders verwirrt? Gibt es bestimmte Fragen, von denen Sie hoffen, dass sie durch diese Studie beantwortet werden können?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Nur für private Zwecke. Übersetzt aus dem Englischen von eurem Diener
+
+Hebrews: A 12-Week Study \(\copyright\) 2015 by Matthew Z. Capps. All rights reserved.
+
+\href{https://www.thegospelcoalition.org/course/knowing-bible-hebrews/\#week-1-overview}{source}
+
+  \bibliography{book.bib,packages.bib}
+
+\printindex
+
+\end{document}
