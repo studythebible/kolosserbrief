@@ -18,16 +18,25 @@ fontsize: 12pt
 cover-image: img/cover.png
 ---
 
-# Studienplan
+# Eine  Studienreihe über den kolosserbrief
 
-Eine  Studienreihe über den kolosserbrief
+Paulus schreibt einen Brief an die Gemeinde in Kolossä, eine Gemeinde, die
+er weder gegründet noch besucht hat. Durch Epaphras, einen Mitarbeiter der 
+Gemeinde in Kolossä, kennt Paulus die Situation der Gemeinde.
 
 
+```{block, type='rmdquote'}
+[Sie] nahmen das Wort mit aller Bereitwilligkeit auf; 
+und sie forschten täglich in der Schrift, ob es sich so verhalte
+
+-- Apostelgeschichte 17.11b
+```
+
+
+
+
+<!--
 ```{block, type='rmdinfo'}
 **Soli Deo Gloria**
 ```
-
-***
-
-Nur für private Zwecke.
-
+-->
