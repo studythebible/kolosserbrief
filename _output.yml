@@ -22,9 +22,9 @@ bookdown::gitbook:
     toc:
       scroll_highlight: yes
       before: |
-        <li><a href="https://bibelstudy.github.io/kolosserbrief/">Kolosserbrief</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://studythebible.github.io">Study the Bible</a></li>
+     #after: |
+      #  <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     #edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
     download: ["pdf", "epub"]
     sharing:
