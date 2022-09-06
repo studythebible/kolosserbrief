@@ -5,7 +5,7 @@ output:
 ---
 
 
-# Kapitel 1 - Verse 1-14 {#teil_01_1_14}
+# Lernen mit Paulus zu beten.  Kolosser 1.1-14 {#teil_01_1_14}
 
 ```{block, type='rmdquote'}
 1 Paulus, Apostel Jesu Christi durch den Willen Gottes, und der Bruder Timotheus 2 an die heiligen und treuen Brüder in Christus in Kolossä: Gnade sei mit euch und Friede von Gott, unserem Vater, und dem Herrn Jesus Christus!
